@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'; // Importa MatSnackBa
 import { Router } from '@angular/router'; // Importa Router
 import { AvailableDate } from "../../models/available_date.model";
 import { AvailableDateApiService } from "../../services/available-date-api.service";
-import { AdvisorApiService } from "../../../user/services/advisor-api.service";
+import { AdvisorApiService } from "../../../profile/services/advisor-api.service";
 import {NgIf} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
 

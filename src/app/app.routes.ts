@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import {NotificationsViewComponent} from "./appointment/pages/notifications-view/notifications-view.component";
+import {NotificationsViewComponent} from "./profile/pages/notifications-view/notifications-view.component";
 
 import {ViewAdvisorsSearchComponent} from "./appointment/pages/view-advisors-search/view-advisors-search.component";
 import {ViewReviewComponent} from "./appointment/components/view-review/view-review.component";

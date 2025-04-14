@@ -5,7 +5,7 @@ import {FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import { FormControl } from '@angular/forms';
 import {PostApiService} from "../../services/post-api.service";
 import {Router} from "@angular/router";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {StorageService} from "../../../shared/services/storage.service";
 import {Post} from "../../models/post.model";
 import {MatSnackBar} from "@angular/material/snack-bar";

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Post} from "../../models/post.model";
 import {Router} from "@angular/router";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {
   MatCard,
   MatCardActions,

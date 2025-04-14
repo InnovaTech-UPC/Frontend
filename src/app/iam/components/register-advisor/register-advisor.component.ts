@@ -13,9 +13,9 @@ import {DateAdapter, MAT_DATE_LOCALE} from "@angular/material/core";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
-import {UserApiService} from "../../../user/services/user-api.service";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
-import {Advisor} from "../../../user/models/advisor.model";
+import {UserApiService} from "../../../profile/services/user-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
+import {Advisor} from "../../../profile/models/advisor.model";
 import {AuthenticationApiService} from "../../services/authentication-api.service";
 import {StorageService} from "../../../shared/services/storage.service";
 import {MatIcon} from "@angular/material/icon";

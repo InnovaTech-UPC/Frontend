@@ -7,7 +7,7 @@ import {MatInput} from "@angular/material/input";
 import {NgIf, NgOptimizedImage} from "@angular/common";
 import {Router, ActivatedRoute} from "@angular/router";
 import {PostApiService} from "../../services/post-api.service";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {StorageService} from "../../../shared/services/storage.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Post} from "../../models/post.model";

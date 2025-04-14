@@ -9,9 +9,9 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIcon} from "@angular/material/icon";
 import {NgForOf} from "@angular/common";
 
-import {Advisor} from "../../../user/models/advisor.model";
+import {Advisor} from "../../../profile/models/advisor.model";
 import {Profile} from "../../../profile/models/profile.model";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {forEach} from "lodash";
 

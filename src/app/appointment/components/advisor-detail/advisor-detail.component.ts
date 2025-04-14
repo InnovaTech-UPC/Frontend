@@ -6,8 +6,8 @@ import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {AppointmentApiService} from "../../services/appointment-api.service";
 import {ReviewApiService} from "../../services/review-api.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
-import {Advisor} from "../../../user/models/advisor.model";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
+import {Advisor} from "../../../profile/models/advisor.model";
 
 @Component({
   selector: 'app-advisor-detail',

@@ -11,8 +11,8 @@ import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Router } from "@angular/router";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
-import { UserApiService } from "../../../user/services/user-api.service";
-import { FarmerApiService } from "../../../user/services/farmer-api.service";
+import { UserApiService } from "../../../profile/services/user-api.service";
+import { FarmerApiService } from "../../../profile/services/farmer-api.service";
 import { AuthenticationApiService } from "../../services/authentication-api.service";
 
 import {Profile} from "../../../profile/models/profile.model";
@@ -20,7 +20,7 @@ import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {StorageService} from "../../../shared/services/storage.service";
 import {MatIcon} from "@angular/material/icon";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import {Farmer} from "../../../user/models/farmer.model";
+import {Farmer} from "../../../profile/models/farmer.model";
 
 @Component({
   selector: 'register-farmer',

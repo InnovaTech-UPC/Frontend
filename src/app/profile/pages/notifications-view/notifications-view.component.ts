@@ -12,9 +12,9 @@ import {FormsModule} from "@angular/forms";
 //Import the NotificationApiService
 
 import { Router } from "@angular/router";
-import {NotificationApiService} from "../../services/notification-api.service";
-import {Notification} from "../../models/notification.model";
-import {UserApiService} from "../../../user/services/user-api.service";
+import {NotificationApiService} from "../../../appointment/services/notification-api.service";
+import {Notification} from "../../../appointment/models/notification.model";
+import {UserApiService} from "../../services/user-api.service";
 
 
 @Component({

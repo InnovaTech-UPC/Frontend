@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButton, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
-import {UserApiService} from "../../../user/services/user-api.service";
+import {UserApiService} from "../../../profile/services/user-api.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";

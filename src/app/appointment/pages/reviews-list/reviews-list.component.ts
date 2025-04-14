@@ -3,10 +3,10 @@ import {MatButton, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {ReviewApiService} from "../../services/review-api.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {Review} from "../../models/review.model";
-import {FarmerApiService} from "../../../user/services/farmer-api.service";
+import {FarmerApiService} from "../../../profile/services/farmer-api.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {
   MatCard,

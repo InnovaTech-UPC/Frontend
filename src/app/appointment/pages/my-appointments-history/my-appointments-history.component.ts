@@ -4,10 +4,10 @@ import {MatCard, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/ma
 import {MatIcon} from "@angular/material/icon";
 import {NgForOf, NgIf} from "@angular/common";
 import {Appointment} from "../../models/appointment.model";
-import {FarmerApiService} from "../../../user/services/farmer-api.service";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {FarmerApiService} from "../../../profile/services/farmer-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {AppointmentApiService} from "../../services/appointment-api.service";
-import {UserApiService} from "../../../user/services/user-api.service";
+import {UserApiService} from "../../../profile/services/user-api.service";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {Router} from "@angular/router";
 import {forEach} from "lodash";

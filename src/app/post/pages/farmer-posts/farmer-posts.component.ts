@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {PostCardComponent} from "../../components/post-card/post-card.component";
 import {AdvisorPostComponent} from "../../components/advisor-post/advisor-post.component";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {PostApiService} from "../../services/post-api.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
