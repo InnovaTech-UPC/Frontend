@@ -1,0 +1,111 @@
+main {
+  margin: 80px 10px 0 10px;
+}
+
+.title-page {
+  color: #092C4C;
+  padding-top: 20px;
+  font-size: 35px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.profile-info, .review-info {
+  flex: 1;
+  flex-direction: column;
+  min-width: 45%;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.star-rating {
+  margin-top: 20px;
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+}
+
+.star-rating button {
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.star-rating .selected {
+  color: #F7C480;
+}
+
+mat-form-field{
+  width: 80%;
+  margin-top: 20px;
+  --mdc-outlined-text-field-focus-outline-color: #7ec306;
+  --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+}
+
+.send-button {
+  width: 80%;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.photo{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #A0AFC8;
+}
+
+.form{
+  padding-left: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: left;
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.buttons button:first-child {
+  margin-right: 10px;
+}
+
+.rating-content span {
+  font-size: 1.2em;
+}
+
+@media (max-width: 600px) {
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-info,
+  .review-info {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .star-rating {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+  }
+
+  .photo {
+    width: 150px;
+    height: 150px;
+  }
+}

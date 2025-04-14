@@ -1,0 +1,39 @@
+<main>
+  <div class="buttons">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon class="icon">arrow_back</mat-icon>
+    </button>
+  </div>
+  <h2 class="title">Reseñas</h2>
+  <div class="info-container">
+    <div class="advisor-info" style="text-align: center; justify-content: center; align-items: center;">
+      <img src="{{profileInfo.photo}}" alt="Foto de {{profileInfo.fullname}}" class="advisor-photo">
+      <h2>{{profileInfo.fullname}}</h2>
+      <h3 class="stars">&#9733; {{profileInfo.rating}}</h3>
+    </div>
+    <div class="reviews-list">
+      <div *ngFor="let review of reviews">
+        <mat-card class="review-card">
+          <mat-card-header>
+            <div class="review-header">
+              <img mat-card-avatar [src]="farmerInfo[review.farmerId]?.photo" alt="Foto de {{farmerInfo[review.farmerId]?.fullname}}" class="farmer-photo">
+              <mat-card-title style="margin-top:7px;">{{farmerInfo[review.farmerId]?.fullname}}</mat-card-title>
+            </div>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-subtitle class="review-stars">
+              <div *ngFor="let star of [1, 2, 3, 4, 5]; index as i">
+                <mat-icon [class.selected]="i < review.rating">{{ i < review.rating ? 'star' : '' }}</mat-icon>
+              </div>
+            </mat-card-subtitle>
+            <p>{{review.comment}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div *ngIf="reviews.length === 0" class="no-reviews">
+        <h2>No hay reseñas disponibles.</h2>
+      </div>
+    </div>
+  </div>
+
+</main>

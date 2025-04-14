@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="header-row">
+    <h1 class="title-page"><strong>Publicaciones</strong></h1>
+  </div>
+  <div class="posts">
+    <ng-container *ngFor="let post of posts">
+      <advisor-post [post]="post"></advisor-post>
+    </ng-container>
+  </div>
+
+  <div *ngIf="posts.length === 0" class="error-container">
+    <span class="error-title">No hay publicaciones a mostrar por el momento</span>
+  </div>
+
+</div>

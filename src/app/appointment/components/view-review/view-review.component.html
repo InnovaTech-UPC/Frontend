@@ -1,0 +1,36 @@
+<main>
+  <div class="buttons">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon class="icon">arrow_back</mat-icon>
+    </button>
+  </div>
+
+  <h2 *ngIf="isFarmer" class="title-page">Calificación</h2>
+  <h2 *ngIf="!isFarmer" class="title-page">Reseña brindada por granjero</h2>
+
+  <div class="info-container">
+    <div class="profile-info" style="text-align: center; justify-content: center; align-items: center;">
+      <img src="{{profileDetails.photo}}" alt="Foto de {{profileDetails.fullname}}" class="photo">
+      <h2>{{profileDetails.fullname}}</h2>
+    </div>
+    <div class="review-info">
+      <h2>Calificación</h2>
+      <div class="star-rating">
+        <button type="button" *ngFor="let star of stars; index as i" >
+          <mat-icon [class.selected]="star">{{ star ? 'star' : 'star_border' }}</mat-icon>
+        </button>
+      </div>
+
+      <h2>Comentario</h2>
+      <div class="container-border">
+        <p>{{review.comment}}</p>
+      </div>
+
+      <button *ngIf="isFarmer" mat-flat-button class="edit-button" color="primary" aria-label="editar" (click)="goToEditReview()">
+        <mat-icon>edit</mat-icon>
+        Editar reseña
+      </button>
+    </div>
+  </div>
+
+</main>

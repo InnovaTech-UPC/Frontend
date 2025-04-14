@@ -1,0 +1,12 @@
+.close-button {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+.reason-field {
+  width: 100%;
+}
+
+.cancel-button {
+  width: 100%;
+}

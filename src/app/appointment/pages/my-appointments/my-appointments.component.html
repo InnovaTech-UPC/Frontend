@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="buttons">
+    <button mat-button style="color: #ffffff" class="button_only" (click)="goToAppointmentHistory()">
+      <mat-icon class="icon">history</mat-icon>
+      Historial de citas
+    </button>
+  </div>
+  <h1 class="title-page"><strong>Mis Citas</strong></h1>
+
+  <div class="appointments-container">
+    <div *ngIf="appointments.length > 0">
+      <ng-container *ngFor="let appointment of appointments">
+        <mat-card class="mat-card" (click)="goToAppointmentDetail(appointment.id)">
+          <mat-card-header>
+            <div class="header-content">
+              <mat-card-title>
+                <div *ngIf="isFarmer" class="img-box">
+                  <img [src]="profileDetails[appointment.advisorId]?.photo" alt="Foto de {{profileDetails[appointment.advisorId]?.fullname}}" class="photo">
+                </div>
+                <div *ngIf="!isFarmer" class="img-box">
+                  <img [src]="profileDetails[appointment.farmerId]?.photo" alt="Foto del {{profileDetails[appointment.farmerId]?.fullname}}" class="photo">
+                </div>
+              </mat-card-title>
+              <mat-card-subtitle>
+                <div *ngIf="isFarmer">
+                  <p class="title">{{ profileDetails[appointment.advisorId]?.fullname }}</p>
+                </div>
+                <div *ngIf="!isFarmer">
+                  <p class="title">{{ profileDetails[appointment.farmerId]?.fullname }}</p>
+                </div>
+                <div class="appointment-info">
+                  <p>{{ formatDate(appointment.scheduledDate) }}</p>
+                  <p>{{ appointment.startTime }} - {{ appointment.endTime }}</p>
+                </div>
+              </mat-card-subtitle>
+            </div>
+          </mat-card-header>
+        </mat-card>
+      </ng-container>
+    </div>
+    <div *ngIf="appointments.length <= 0" class="error-container">
+      <span class="error-title">Usted no tiene citas pendientes</span>
+    </div>
+  </div>
+
+</div>

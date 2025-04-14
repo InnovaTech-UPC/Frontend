@@ -1,0 +1,81 @@
+main {
+  margin: 80px 10px 0 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: left;
+  width: 70%;
+  margin-top: 20px;
+}
+
+h2 {
+  color: #092C4C;
+}
+
+.photo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid #A0AFC8;
+}
+
+.advisor-info, .more-info {
+  flex: 1;
+  flex-direction: column;
+  min-width: 45%;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.appointment-button {
+  width: 80%;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.container-border {
+  width: 80%;
+  border: 1px solid #A0AFC8;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.stars{
+  font-size: 25px;
+  color: #F7C480;
+}
+
+@media (max-width: 600px) {
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .advisor-info,
+  .more-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .container-border {
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .photo {
+    width: 150px;
+    height: 150px;
+  }
+}

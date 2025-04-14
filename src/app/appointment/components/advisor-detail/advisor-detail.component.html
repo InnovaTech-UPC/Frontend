@@ -1,0 +1,32 @@
+<main>
+  <div class="buttons">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon class="icon">arrow_back</mat-icon>
+    </button>
+  </div>
+  <div class="info-container">
+    <div class="advisor-info" style="text-align: center; justify-content: center; align-items: center;">
+      <img src="{{profileInfo.photo}}" alt="Foto de {{profileInfo.fullname}}" class="photo">
+      <h2>{{profileInfo.fullname}}</h2>
+      <h3 class="stars">&#9733; {{profileInfo.rating}}</h3>
+      <br/>
+      <button mat-flat-button color="primary" aria-label="ver reseñas" (click)="goToReviews()">Ver reseñas</button>
+    </div>
+    <div class="more-info">
+      <h2>Sobre el asesor</h2>
+      <div class="container-border">
+        {{profileInfo.description}}
+      </div>
+      <h2>Ocupación</h2>
+      <div class="container-border">
+        <p>{{profileInfo.occupation}}</p>
+      </div>
+      <h2>Experiencia</h2>
+      <div class="container-border">
+        <p>{{profileInfo.experience}} años</p>
+      </div>
+      <button mat-flat-button class="appointment-button" color="primary" aria-label="agendar" (click)="goToReserveAppointment()">Agendar cita</button>
+    </div>
+  </div>
+
+</main>

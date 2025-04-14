@@ -1,0 +1,117 @@
+main {
+  margin: 80px 10px 0 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: left;
+  width: 70%;
+  margin-top: 20px;
+}
+
+.title {
+  color: #092C4C;
+  padding-top: 50px;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.advisor-photo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid #A0AFC8;
+}
+
+.advisor-info, .reviews-list {
+  flex: 1;
+  flex-direction: column;
+  min-width: 45%;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.appointment-button {
+  width: 80%;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.review-header {
+  display: flex;
+  gap: 10px;
+}
+
+.farmer-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Makes the photo circular */
+  object-fit: cover; /* Ensures the photo fits within the circle */
+  box-sizing: border-box;
+}
+
+.stars{
+  font-size: 25px;
+  color: #F7C480;
+}
+
+.review-card {
+  background-color: #F7F9FC;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+}
+
+.review-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 25px;
+  color: #F7C480;
+}
+
+.no-reviews {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 18px;
+}
+
+@media (max-width: 680px) {
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .advisor-info,
+  .reviews-list {
+    width: 100%;
+    text-align: center;
+  }
+
+  .review-card {
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .advisor-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .no-reviews {
+    margin-top: 5px;
+  }
+}

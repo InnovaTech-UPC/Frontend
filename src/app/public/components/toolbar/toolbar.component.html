@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <img src="https://firebasestorage.googleapis.com/v0/b/agroconnect-demo.appspot.com/o/images%2Flogo-circular.jpg?alt=media&token=51652ea1-b903-404e-9ca5-08189a1bd07d" alt="Logo">
+  <label>AgroTech</label>
+  <span class="spacer"></span>
+  <ng-container *ngIf="isLogged()">
+    <button *ngFor="let section of getSections()" style="color: #FFFFFF" mat-button [routerLink]="getSectionRoute(section)" class="section-button">
+      {{ section }}
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button *ngFor="let section of getSections()" mat-menu-item [routerLink]="getSectionRoute(section)">
+        {{ section }}
+      </button>
+    </mat-menu>
+    <button mat-icon-button (click)="logOut()" class="logout-icon">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </ng-container>
+
+</mat-toolbar>

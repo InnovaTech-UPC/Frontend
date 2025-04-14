@@ -1,0 +1,34 @@
+<div class="container">
+  <h1 class="title-page"><strong>Asesores</strong></h1>
+  <mat-form-field appearance="fill">
+    <mat-label> <mat-icon>search</mat-icon> Buscar</mat-label>
+    <input matInput (input)="filter($event)">
+  </mat-form-field>
+
+  <div class="advisors-container">
+    <mat-card *ngFor="let profile of profiles" class="mat-card">
+      <mat-card-header>
+        <div class="header-content">
+          <mat-card-title>
+            <div class="img-box">
+              <img [src]="profile.photo" alt="Foto de {{profile.firstName}} {{profile.lastName}}" class="photo">
+            </div>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <span class="title">{{ profile.firstName }} {{ profile.lastName }}</span>
+            <br><br>
+            <span class="stars">&#9733; {{ advisors[profile.userId]?.rating }}</span>
+          </mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <div class="more-info">
+        <h3>
+          <strong>Ubicación:</strong> {{ profile.city }}, {{ profile.country }}
+          <br>
+          <strong>Experiencia:</strong> {{profile.experience}} años
+        </h3>
+        <button mat-button style="color: white" class="card-button" (click)="navigateToAdvisorInfo(advisors[profile.userId].id)">Más Información</button>
+      </div>
+    </mat-card>
+  </div>
+</div>

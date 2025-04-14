@@ -1,0 +1,11 @@
+<mat-card class="post-card" appearance="outlined">
+  <img mat-card-image class="post-image" [src]="post.image" alt="Post image">
+  <mat-card-content>
+    <strong class="post-title">{{post.title}}</strong>
+    <p class="post-description">{{post.description}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="onEdit(post.id)">Editar</button>
+    <button mat-flat-button color="warn" (click)="onDelete(post.id)">Eliminar</button>
+  </mat-card-actions>
+</mat-card>

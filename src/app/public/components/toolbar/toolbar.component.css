@@ -1,0 +1,60 @@
+mat-toolbar{
+  background: #DC763C;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+img{
+  width: 50px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+label{
+  color: white;
+  font-size: 32px;
+}
+span{
+  color: black;
+}
+
+.section-button {
+  display: inline-block;
+}
+
+.menu-icon {
+  display: none;
+  color: #FFFFFF;
+}
+
+.logout-icon {
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .section-button {
+    display: none;
+  }
+  .menu-icon {
+    display: inline-block;
+  }
+  img {
+    width: 40px;
+  }
+  label {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 320px) {
+  img {
+    width: 30px;
+  }
+  label {
+    font-size: 24px;
+  }
+}

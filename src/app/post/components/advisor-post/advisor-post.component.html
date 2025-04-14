@@ -1,0 +1,14 @@
+<mat-card class="advisor-post-card" appearance="outlined">
+  <mat-card-header>
+    <img mat-card-avatar class="avatar-image" [src]="image" alt="Avatar de {{name}}">
+    <mat-card-title>{{name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class="post-image" [src]="post.image" alt="Post image">
+  <mat-card-content>
+    <strong class="post-title">{{post.title}}</strong>
+    <p class="post-description">{{post.description}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="goToAdvisor(post.advisorId)">Ver perfil</button>
+  </mat-card-actions>
+</mat-card>
