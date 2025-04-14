@@ -1,12 +1,13 @@
-<main>
-  <div class="buttons">
-    <button mat-icon-button (click)="goBack()">
-      <mat-icon class="icon">arrow_back</mat-icon>
-    </button>
+<div class="container">
+  <div class="header-row">
+    <div class="back-button">
+      <button mat-icon-button style="color: #092C4C" (click)="goBack()">
+        <mat-icon class="icon">arrow_back</mat-icon>
+      </button>
+    </div>
+    <h1 class="title-page"><strong>Historial de Citas</strong></h1>
+    <div></div>
   </div>
-
-  <h1 class="title-page"><strong>Reservar Cita</strong></h1>
-
   <div class="info-container">
     <div class="advisor-info" style="text-align: center; justify-content: center; align-items: center;">
       <img src="{{profileInfo.photo}}" alt="Foto de perfil" class="photo">
@@ -42,4 +43,4 @@
       <span class="error-title">El asesor no tiene horarios disponibles</span>
     </div>
   </div>
-</main>
+</div>

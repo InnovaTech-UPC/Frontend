@@ -49,7 +49,7 @@ export class BookAppointmentComponent implements OnInit {
   availableDates: AvailableDate[] = [];
   farmerId = 0;
   advisorId = 0;
-  selectedDateIndex!: number;
+  selectedDateIndex: number = 0;
   profileInfo = {
     fullname: '',
     photo: ''

@@ -1,5 +1,29 @@
-main {
-  margin: 80px 10px 0 10px;
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 100px auto 0;
+}
+
+.back-button {
+  justify-self: start;
+}
+
+.title-page {
+  color: #092C4C;
+  font-size: 35px;
+  text-align: center;
+  margin: 0;
+  grid-column: 2;
 }
 
 .form{
@@ -36,21 +60,6 @@ mat-form-field{
   min-width: 45%;
 }
 
-.buttons {
-  display: flex;
-  justify-content: left;
-  width: 70%;
-  margin-top: 20px;
-}
-
-.title-page {
-  color: #092C4C;
-  padding-top: 30px;
-  font-size: 35px;
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 10px;
-}
 
 .error-container {
   margin-top: 60px;
@@ -61,9 +70,13 @@ mat-form-field{
   gap: 20px;
 }
 
-.error-title{
-  font-size: 20px;
+.error-title {
+  font-size: 2em;
   font-weight: bold;
+  text-align: center;
+  word-wrap: break-word;
+  width: 90%;
+  line-height: 1;
 }
 
 .appointment-form {

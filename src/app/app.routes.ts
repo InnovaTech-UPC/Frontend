@@ -1,27 +1,22 @@
 import { Routes } from '@angular/router';
 
 import {NotificationsViewComponent} from "./profile/pages/notifications-view/notifications-view.component";
-
 import {ViewAdvisorsSearchComponent} from "./appointment/pages/view-advisors-search/view-advisors-search.component";
 import {ViewReviewComponent} from "./appointment/components/view-review/view-review.component";
 import {LoginComponent} from "./iam/pages/login/login.component";
-
 import {SignupComponent} from "./iam/pages/signup/signup.component";
 import {SignupFarmerComponent} from "./iam/pages/signup-farmer/signup-farmer.component";
 import {SignupAdvisorComponent} from "./iam/pages/signup-advisor/signup-advisor.component";
-
 import {ListAvailabilityScheduleComponent} from "./appointment/pages/list-availability-schedule/list-availability-schedule.component";
 import {AddAvailabilityScheduleComponent} from "./appointment/components/add-availability-schedule/add-availability-schedule.component";
 import {MyAppointmentsComponent} from "./appointment/pages/my-appointments/my-appointments.component";
 import {AppointmentDetailComponent} from "./appointment/components/appointment-detail/appointment-detail.component";
 import {AdvisorDetailComponent} from "./appointment/components/advisor-detail/advisor-detail.component";
-import {
-  MyAppointmentsHistoryComponent
-} from "./appointment/pages/my-appointments-history/my-appointments-history.component";
+import {MyAppointmentsHistoryComponent} from "./appointment/pages/my-appointments-history/my-appointments-history.component";
 import {NewReviewComponent} from "./appointment/components/new-review/new-review.component";
 import {EditReviewComponent} from "./appointment/components/edit-review/edit-review.component";
 import {ReviewsListComponent} from "./appointment/pages/reviews-list/reviews-list.component";
-import {BookAppointmentComponent} from "./appointment/components/book-appointment/book-appointment.component";
+import {BookAppointmentComponent} from "./appointment/pages/book-appointment/book-appointment.component";
 import {AdvisorPostsComponent} from "./post/pages/advisor-posts/advisor-posts.component";
 import {CreatePostComponent} from "./post/pages/create-post/create-post.component";
 import {PostDetailComponent} from "./post/pages/post-detail/post-detail.component";
