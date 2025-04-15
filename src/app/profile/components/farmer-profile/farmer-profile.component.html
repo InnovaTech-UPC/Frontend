@@ -1,0 +1,57 @@
+<main>
+  <h1 class="title-page">Perfil</h1>
+
+  <div class="profile-edition">
+    <div class="image-section">
+      <img *ngIf="!isUploading" [src]="photo" alt="Imagen de perfil" aria-label="Profile image" class="profile-image">
+      <div *ngIf="isUploading" class="loading-spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+      <input id="uploadImage" hidden (change)="uploadImage($event)" type="file" accept=".png, .jpg, .jpeg">
+      <label id="imageButton" for="uploadImage">
+        <mat-icon>image</mat-icon>
+        Subir foto de perfil
+      </label>
+    </div>
+    <div class="form-section">
+      <form (ngSubmit)="updateProfile()" #profileForm = "ngForm" aria-label="Edit profile form">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre(s)</mat-label>
+          <input matInput placeholder="e.g.: Marco" name="firstName" [(ngModel)]="profile.firstName" required>
+          <mat-error *ngIf="!profile.firstName">
+            El nombre es requerido
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Apellido(s)</mat-label>
+          <input matInput placeholder="e.g.: Pérez" name="lastName" [(ngModel)]="profile.lastName" required>
+          <mat-error *ngIf="!profile.lastName">
+            El apellido es requerido
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Ciudad</mat-label>
+          <input matInput placeholder="e.g.: Lima" name="city" [(ngModel)]="profile.city" required>
+          <mat-error *ngIf="!profile.city">
+            La ciudad es requerida
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>País</mat-label>
+          <input matInput placeholder="e.g.: Perú" name="country" [(ngModel)]="profile.country" required>
+          <mat-error *ngIf="!profile.country">
+            El país es requerido
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Descripción (cuéntanos un poco sobre ti)</mat-label>
+          <textarea matInput placeholder="e.g.: ¡Me encantan los animales!" name="description" [(ngModel)]="profile.description"></textarea>
+        </mat-form-field>
+
+        <div class="buttons">
+          <button mat-flat-button class="submit-button" color="primary" type="submit" [disabled]="!profileForm.valid || isUploading || !uploaded">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

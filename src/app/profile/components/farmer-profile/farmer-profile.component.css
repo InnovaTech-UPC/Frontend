@@ -1,0 +1,100 @@
+main {
+  margin: 80px 10px 0 10px;
+}
+
+.title-page {
+  color: #092C4C;
+  font-size: 35px;
+  text-align: center;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.profile-edition {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.image-section, .form-section {
+  flex: 1;
+  flex-direction: column;
+  min-width: 45%;
+}
+
+mat-form-field {
+  width: 70%;
+  --mdc-outlined-text-field-focus-outline-color: #7ec306;
+  --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#imageName {
+  margin-left: 10px;
+}
+
+#imageButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3E64FF;
+  color: #FFFFFF;
+  padding: 15px;
+  border-radius: 35px;
+  text-align: center;
+  align-content: center;
+  width: 50%;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid #A0AFC8;
+}
+
+.submit-button:enabled {
+  background-color: #092C4C;
+  color: #FFFFFF;
+}
+
+button {
+  width: 70%;
+}
+
+@media (max-width: 600px) {
+  .profile-edition {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-section,
+  .form-section {
+    width: 100%;
+    text-align: center;
+  }
+
+  .photo {
+    width: 150px;
+    height: 150px;
+  }
+}
