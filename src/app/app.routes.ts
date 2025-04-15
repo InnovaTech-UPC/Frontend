@@ -21,6 +21,7 @@ import {AdvisorPostsComponent} from "./post/pages/advisor-posts/advisor-posts.co
 import {CreatePostComponent} from "./post/pages/create-post/create-post.component";
 import {PostDetailComponent} from "./post/pages/post-detail/post-detail.component";
 import {FarmerPostsComponent} from "./post/pages/farmer-posts/farmer-posts.component";
+import {ProfilePageComponent} from "./profile/pages/profile-page/profile-page.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -42,6 +43,7 @@ export const routes: Routes = [
   {path: 'granjero/asesor-resenas/:id', component: ReviewsListComponent },
   {path: 'granjero/publicaciones', component: FarmerPostsComponent },
   {path: 'granjero/notificaciones', component: NotificationsViewComponent },
+  {path: 'granjero/perfil', component: ProfilePageComponent },
   {path: 'asesor/citas', component: MyAppointmentsComponent },
   {path: 'asesor/citas/:id', component: AppointmentDetailComponent },
   {path: 'asesor/historial-citas', component: MyAppointmentsHistoryComponent},
@@ -51,5 +53,6 @@ export const routes: Routes = [
   {path: 'asesor/mis-publicaciones/:id', component: PostDetailComponent },
   {path: 'asesor/notificaciones', component: NotificationsViewComponent },
   {path: 'asesor/horarios', component: ListAvailabilityScheduleComponent },
-  {path: 'asesor/horarios/agregar', component: AddAvailabilityScheduleComponent }
+  {path: 'asesor/horarios/agregar', component: AddAvailabilityScheduleComponent },
+  {path: 'asesor/perfil', component: ProfilePageComponent }
 ];
