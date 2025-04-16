@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="buttons">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon class="icon">arrow_back</mat-icon>
+    </button>
+  </div>
+  <h1>Listado de animales</h1>
+  <h1>de {{enclosureName}}</h1>
+  <div class="error-container" *ngIf="animals.length === 0">
+    <h2>No se han encontrado animales</h2>
+  </div>
+  <div class="animals">
+    <animal-card *ngFor="let animal of animals" [animal]="animal"></animal-card>
+  </div>
+
+  <div class="register">
+    <button mat-flat-button class="register-button" style="padding: 20px; background-color: #092C4C; color: white;"  (click)="createAnimal()">
+      <mat-icon aria-label="simbolo de suma">add</mat-icon>
+      Nuevo animal
+    </button>
+  </div>
+</div>
+
