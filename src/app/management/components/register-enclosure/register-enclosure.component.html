@@ -1,0 +1,41 @@
+<main>
+  <div class="buttons">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon class="icon">arrow_back</mat-icon>
+    </button>
+  </div>
+
+  <h2>Registrar nuevo recinto</h2>
+
+  <div class="group-inputs">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Jaula 6" [(ngModel)]="enclosure.name" required>
+      <mat-error *ngIf="!enclosure.name">
+        La capacidad debe ser mayor a 0
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Capacidad</mat-label>
+      <input type="number" matInput placeholder="5" min="1" [(ngModel)]="enclosure.capacity" required>
+      <mat-error *ngIf="enclosure.capacity <= 0">
+        La capacidad debe ser mayor a 0
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Tipo</mat-label>
+      <input matInput placeholder="Tipo" [(ngModel)]="enclosure.type" required>
+      <mat-error *ngIf="!enclosure.type">
+        El tipo no puede estar vacío
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="group-btns">
+    <button class="register-button" mat-flat-button style="padding: 20px; color: white;" [disabled]="!this.enclosure.name || !this.enclosure.capacity || !this.enclosure.type" (click)="handleClick()">
+      Registrar
+    </button>
+  </div>
+
+</main>

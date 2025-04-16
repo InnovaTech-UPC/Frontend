@@ -1,0 +1,13 @@
+<main>
+  <h1>Listado de Recintos</h1>
+  <div class="error-container" *ngIf="length === 0">
+    <h2>No se han encontrado jaulas</h2>
+  </div>
+  <enclosure-table *ngIf="length > 0" [dataSource]="dataSource" (editEnclosure)="editEnclosure($event)" (deleteEnclosure)="deleteEnclosure($event)" (goToEnclosure)="goToEnclosure($event)"></enclosure-table>
+  <div class="button-container">
+    <button mat-raised-button routerLink="/granjero/mi-granja/nuevo-recinto">
+      <mat-icon>add</mat-icon>
+      Nuevo recinto
+    </button>
+  </div>
+</main>

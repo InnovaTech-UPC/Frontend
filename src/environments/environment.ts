@@ -23,7 +23,7 @@ export const environment = {
     notificationURL: '/notifications',
     postURL: '/posts',
     animalURL: '/animals',
-    cageURL: '/cages',
+    enclosureURL: '/enclosures',
     reviewURL: '/reviews',
     availableDateURL: '/available_dates'
 }

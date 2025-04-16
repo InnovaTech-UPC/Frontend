@@ -134,7 +134,7 @@ export class RegisterAdvisorComponent {
       this.router.navigateByUrl('/asesor/citas');
       this.snackBar.open('Bienvenid@ ' + this.registerForm.value.firstName + ' 🤗', 'Cerrar', { duration: 2000 });
     } catch (error) {
-      this.snackBar.open('Error al registrar el asesor😥', 'Cerrar', {duration: 5000});
+      this.snackBar.open('Error al registrar el asesor😥', 'Cerrar', {duration: 2000});
     }
   }
 
@@ -162,7 +162,7 @@ export class RegisterAdvisorComponent {
         this.advisorApiService.setAdvisorId(advisor.id);
       });
     } catch (error) {
-      this.snackBar.open('Error al crear el perfil😥', 'Cerrar', { duration: 5000 });
+      this.snackBar.open('Error al crear el perfil😥', 'Cerrar', { duration: 2000 });
       throw error;
     }
   }
