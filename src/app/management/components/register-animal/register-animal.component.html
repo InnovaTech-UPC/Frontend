@@ -1,0 +1,68 @@
+<main>
+  <div class="buttons">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon class="icon">arrow_back</mat-icon>
+    </button>
+  </div>
+
+  <h2>Registrar nuevo animal</h2>
+
+  <div class="group-inputs">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Nombre del animal" name="animalName" [(ngModel)]="animal.name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Edad</mat-label>
+      <input matInput type="number" placeholder="Edad" name="animalAge" min="0" [(ngModel)]="animal.age" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Especie</mat-label>
+      <input matInput placeholder="Especie del animal" name="animalSpecies" [(ngModel)]="animal.species" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Raza</mat-label>
+      <input matInput placeholder="Raza del animal" name="animalName" [(ngModel)]="animal.breed" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Género</mat-label>
+      <mat-select name="animalGender" aria-label="seleccionador de genero" [(ngModel)]="gender" required>
+        <mat-option value="true">Macho</mat-option>
+        <mat-option value="false">Hembra</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Peso (kg)</mat-label>
+      <input matInput type="number" placeholder="Peso" name="animalWeight" min="0.1" [(ngModel)]="animal.weight" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Salud</mat-label>
+      <mat-select name="animalHealth" [(ngModel)]="animal.health">
+        <mat-option value="HEALTHY">Saludable</mat-option>
+        <mat-option value="SICK">Enfermo</mat-option>
+        <mat-option value="DEAD">Fallecido</mat-option>
+        <mat-option value="UNKNOWN">Desconocido</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>ID de recinto</mat-label>
+      <input matInput type="number" placeholder="ID de recinto" name="animalEnclosureId" [(ngModel)]="animal.enclosureId" disabled>
+    </mat-form-field>
+
+    <div class="group-btns">
+      <button class="register-button" mat-flat-button style="padding: 20px; color: white;" [disabled]="!this.animal.name || !this.animal.species || !this.animal.breed || !this.animal.enclosureId ||
+      !this.animal.weight || !this.animal.age || !this.animal.health || !this.gender"  (click)="handleClick()">
+        Registrar
+      </button>
+    </div>
+  </div>
+
+</main>
+
