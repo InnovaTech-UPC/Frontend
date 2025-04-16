@@ -1,10 +1,12 @@
 <main>
-  <div class="buttons">
-    <button mat-icon-button (click)="goBack()">
-      <mat-icon class="icon">arrow_back</mat-icon>
-    </button>
+  <div class="header-row">
+    <div class="back-button">
+      <button mat-icon-button (click)="goBack()">
+        <mat-icon class="icon">arrow_back</mat-icon>
+      </button>
+    </div>
+    <h2 class="title">Reseñas</h2>
   </div>
-  <h2 class="title">Reseñas</h2>
   <div class="info-container">
     <div class="advisor-info" style="text-align: center; justify-content: center; align-items: center;">
       <img src="{{profileInfo.photo}}" alt="Foto de {{profileInfo.fullname}}" class="advisor-photo">

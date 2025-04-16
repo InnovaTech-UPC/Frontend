@@ -129,7 +129,7 @@ export class AnimalInformationComponent implements OnInit{
       if(result) {
         this.animalApiService.delete(this.animalID).subscribe(() => {
           this.router.navigate([`/granjero/mi-granja/recinto/${this.animal.enclosureId}`]);
-          this.snackBar.open('Animal eliminado con éxito 🎉', '', {
+          this.snackBar.open('Animal eliminado con éxito 🎉', 'Cerrar', {
             duration: 2000
           });
         }, error => {
