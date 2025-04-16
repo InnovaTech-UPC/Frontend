@@ -131,7 +131,7 @@ export class RegisterFarmerComponent {
       this.router.navigateByUrl('/granjero/mi-granja');
       this.snackBar.open('Bienvenid@ ' + this.registerForm.value.firstName + ' 🤗', 'Cerrar', { duration: 2000 });
     } catch (error) {
-      this.snackBar.open('Error al registrar el granjero😥', 'Cerrar', {duration: 5000});
+      this.snackBar.open('Error al registrar el granjero😥', 'Cerrar', {duration: 2000});
     }
   }
 
@@ -158,7 +158,7 @@ export class RegisterFarmerComponent {
         this.farmerApiService.setFarmerId(farmer.id);
       });
     } catch (error) {
-      this.snackBar.open('Error al crear el perfil😥', 'Cerrar', { duration: 5000 });
+      this.snackBar.open('Error al crear el perfil😥', 'Cerrar', { duration: 2000 });
       throw error;
     }
   }

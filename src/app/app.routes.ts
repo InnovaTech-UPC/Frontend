@@ -22,6 +22,12 @@ import {CreatePostComponent} from "./post/pages/create-post/create-post.componen
 import {PostDetailComponent} from "./post/pages/post-detail/post-detail.component";
 import {FarmerPostsComponent} from "./post/pages/farmer-posts/farmer-posts.component";
 import {ProfilePageComponent} from "./profile/pages/profile-page/profile-page.component";
+import {EnclosureListComponent} from "./management/pages/enclosure-list/enclosure-list.component";
+import {AnimalListComponent} from "./management/pages/animal-list/animal-list.component";
+import {AnimalInformationComponent} from "./management/pages/animal-information/animal-information.component";
+import {EnclosureEditorComponent} from "./management/pages/enclosure-editor/enclosure-editor.component";
+import {RegisterEnclosureComponent} from "./management/components/register-enclosure/register-enclosure.component";
+import {RegisterAnimalComponent} from "./management/components/register-animal/register-animal.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -42,6 +48,12 @@ export const routes: Routes = [
   {path: 'granjero/asesor-info/:id/reservar-cita', component: BookAppointmentComponent },
   {path: 'granjero/asesor-resenas/:id', component: ReviewsListComponent },
   {path: 'granjero/publicaciones', component: FarmerPostsComponent },
+  {path: 'granjero/mi-granja', component: EnclosureListComponent },
+  {path: 'granjero/mi-granja/recinto/:id', component: AnimalListComponent },
+  {path: 'granjero/mi-granja/recinto/:id/animal/:animalId', component: AnimalInformationComponent },
+  {path: 'granjero/mi-granja/recinto/:id/editar', component: EnclosureEditorComponent },
+  {path: 'granjero/mi-granja/nuevo-recinto', component: RegisterEnclosureComponent },
+  {path: 'granjero/mi-granja/recinto/:id/nuevo-animal', component: RegisterAnimalComponent },
   {path: 'granjero/notificaciones', component: NotificationsViewComponent },
   {path: 'granjero/perfil', component: ProfilePageComponent },
   {path: 'asesor/citas', component: MyAppointmentsComponent },

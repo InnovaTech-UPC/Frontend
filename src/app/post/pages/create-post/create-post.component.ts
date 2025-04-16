@@ -56,13 +56,13 @@ export class CreatePostComponent implements OnInit {
   onSubmit() {
     if(this.selectedFileName === '') {
       this.snackBar.open('Debes seleccionar una imagen para la publicación😓', 'Cerrar', {
-        duration: 5000,
+        duration: 2000,
       });
       return;
     }
     if(this.image === null) {
       this.snackBar.open('Error al subir la imagen de la publicación😥', 'Cerrar', {
-        duration: 5000,
+        duration: 2000,
       });
       return;
     }
@@ -78,13 +78,13 @@ export class CreatePostComponent implements OnInit {
     this.postApiService.create(post).subscribe({
       next: () => {
         this.snackBar.open('Publicación creada con éxito!🎉', 'Cerrar', {
-          duration: 5000,
+          duration: 2000,
         });
         this.goToPosts();
       },
       error: (error) => {
         this.snackBar.open('Error al crear la publicación😥', 'Cerrar', {
-          duration: 5000,
+          duration: 2000,
         });
         console.error('Error creating post:', error);
       }
