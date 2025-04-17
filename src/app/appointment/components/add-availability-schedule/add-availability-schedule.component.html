@@ -1,36 +1,40 @@
 <main>
   <div class="container">
-    <h3>Agregar nuevo horario</h3>
-    <form  [formGroup]="form" (ngSubmit)="addAvailableDate()">
-      <mat-form-field style="width: 100%"  appearance="fill">
-        <mat-label>Dia</mat-label>
-        <input matInput formControlName="date" type="date" required>
-      </mat-form-field>
-      <mat-form-field style="width: 100%"  appearance="fill">
-        <mat-label>Hora de inicio</mat-label>
-        <input matInput formControlName="startTime" type="time" required>
-      </mat-form-field>
-      <mat-form-field style="width: 100%"  appearance="fill">
-        <mat-label>Hora de fin</mat-label>
-        <input matInput formControlName="endTime" type="time" required>
-      </mat-form-field>
-      <div *ngIf="form.errors?.['invalidDate'] && form.get('date')?.value" class="error-message">
-        La fecha debe ser mayor o igual a la fecha actual.
-      </div>
-      <div *ngIf="form.errors?.['invalidTime'] && form.get('startTime')?.value && form.get('endTime')?.value" class="error-message">
-        Intervalo de tiempo no valido
-      </div>
-      <div class="container-btns">
-        <button mat-button color="warn" style="margin: 5px;" type="submit" [disabled]="!form.valid">
-          <mat-icon>save</mat-icon>
-          Agregar
-        </button>
-        <button mat-button style="margin: 5px; color: white; background-color: #e19669" routerLink="/asesor/horarios">
-          <mat-icon>close</mat-icon>
-          Cancelar
+    <div class="header-row">
+      <div class="back-button">
+        <button mat-icon-button style="color: #092C4C" (click)="goBack()">
+          <mat-icon class="icon">arrow_back</mat-icon>
         </button>
       </div>
-    </form>
+      <h2>Agregar nuevo horario</h2>
+    </div>
+    <div class="date-form">
+      <form  [formGroup]="form" (ngSubmit)="addAvailableDate()">
+        <mat-form-field style="width: 100%"  appearance="fill">
+          <mat-label>Dia</mat-label>
+          <input matInput formControlName="date" type="date" required>
+        </mat-form-field>
+        <mat-form-field style="width: 100%"  appearance="fill">
+          <mat-label>Hora de inicio</mat-label>
+          <input matInput formControlName="startTime" type="time" required>
+        </mat-form-field>
+        <mat-form-field style="width: 100%"  appearance="fill">
+          <mat-label>Hora de fin</mat-label>
+          <input matInput formControlName="endTime" type="time" required>
+        </mat-form-field>
+        <div *ngIf="form.errors?.['invalidDate'] && form.get('date')?.value" class="error-message">
+          La fecha debe ser mayor o igual a la fecha actual.
+        </div>
+        <div *ngIf="form.errors?.['invalidTime'] && form.get('startTime')?.value && form.get('endTime')?.value" class="error-message">
+          Intervalo de tiempo no valido
+        </div>
+        <div class="container-btns">
+          <button mat-flat-button style="margin: 5px;" type="submit" [disabled]="!form.valid">
+            Agregar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </main>
 

@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatIconButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
 import {MatInput} from "@angular/material/input";
 import {FormBuilder, FormGroup, NgForm, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -16,17 +16,18 @@ import {MatIcon} from "@angular/material/icon";
 @Component({
   selector: 'app-add-availability-schedule',
   standalone: true,
-    imports: [
-        MatFormField,
-        MatButton,
-        MatLabel,
-        RouterLink,
-        MatInput,
-        ReactiveFormsModule,
-        MatError,
-        NgIf,
-        MatIcon
-    ],
+  imports: [
+    MatFormField,
+    MatButton,
+    MatLabel,
+    RouterLink,
+    MatInput,
+    ReactiveFormsModule,
+    MatError,
+    NgIf,
+    MatIcon,
+    MatIconButton
+  ],
   templateUrl: './add-availability-schedule.component.html',
   styleUrl: './add-availability-schedule.component.css'
 })
@@ -73,7 +74,7 @@ export class AddAvailabilityScheduleComponent implements OnInit{
       this.snackBar.open('Horario disponible creado con éxito🎉', 'Cerrar', {
         duration: 2000,
       });
-      this.goToAvailableDates();
+      this.goBack();
     }, error => {
       this.snackBar.open('Error al crear el horario disponible😓', 'Cerrar', {
         duration: 2000,
@@ -82,8 +83,8 @@ export class AddAvailabilityScheduleComponent implements OnInit{
     });
   }
 
-  goToAvailableDates() {
-    this.router.navigate(['/asesor/horarios']);
+  goBack() {
+    window.history.back();
   }
 
   validTimeValidator(formGroup: FormGroup) {

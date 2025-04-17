@@ -50,7 +50,7 @@ export class AdvisorPostComponent implements OnInit {
   ngOnInit() {
     this.advisorApiService.getOne(this.post.advisorId).subscribe({
       next: (advisor) => {
-        this.profileApiService.getProfileByUserId(advisor.id).subscribe({
+        this.profileApiService.getProfileByUserId(advisor.userId).subscribe({
           next: (profile) => {
             this.name = profile.firstName + ' ' + profile.lastName;
             this.image = profile.photo;
