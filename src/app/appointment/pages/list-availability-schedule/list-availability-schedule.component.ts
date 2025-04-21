@@ -29,8 +29,8 @@ import {
   styleUrl: './list-availability-schedule.component.css'
 })
 export class ListAvailabilityScheduleComponent implements OnInit{
-  results: any[] = [];
-  advisor_id = 0;
+  dates: AvailableDate[] = [];
+  advisorId = 0;
 
   constructor(private availableDateApiService: AvailableDateApiService,
               private advisorApiService: AdvisorApiService,
@@ -39,13 +39,28 @@ export class ListAvailabilityScheduleComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.advisor_id = this.advisorApiService.getAdvisorId();
+    this.advisorId = this.advisorApiService.getAdvisorId();
     this.getAvailableDates();
   }
 
 
   getAvailableDates() {
-    /** TO DO **/
+    this.availableDateApiService.getAvailableDatesByAdvisorId(this.advisorId).subscribe({
+      next: (response) => {
+        this.dates = response.sort((a, b) => {
+          const dateA = new Date(`${a.availableDate}T${a.startTime}`);
+          const dateB = new Date(`${b.availableDate}T${b.startTime}`);
+          return dateA.getTime() - dateB.getTime();
+        });
+        console.log("Horarios disponibles obtenidos con éxito:", this.dates);
+      },
+      error: (error) => {
+        console.error("Error al obtener los horarios disponibles:", error);
+        this.snackBar.open("Error al obtener los horarios disponibles", "Cerrar", {
+          duration: 2000,
+        });
+      }
+    })
   }
 
   confirmDeletion(): Observable<boolean> {
@@ -67,7 +82,7 @@ export class ListAvailabilityScheduleComponent implements OnInit{
           this.snackBar.open("Horario disponible eliminado con éxito👍", "Cerrar", {
             duration: 2000,
           });
-          this.results = this.results.filter((availableDate: any) => availableDate.id !== id);
+          this.dates = this.dates.filter((availableDate: any) => availableDate.id !== id);
         }, (error) => {
           console.error("Error al eliminar el horario disponible:", error);
           this.snackBar.open("Error al eliminar el horario disponible", "Cerrar", {
