@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   firebaseConfig: {
     apiKey: process.env['FIREBASE_API_KEY'],
     authDomain: process.env['FIREBASE_AUTH_DOMAIN'],
@@ -8,7 +8,7 @@ export const environment = {
     messagingSenderId: process.env['FIREBASE_MESSAGING_SENDER_ID'],
     appId: process.env['FIREBASE_APP_ID']
   },
-  baseURL: process.env['BASE_URL'], // Local URL for backend
+  baseURL: process.env['BASE_URL_PROD'],
 
   // URLs for the different endpoints
   userURL: process.env['USER_URL'],

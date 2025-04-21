@@ -40,7 +40,14 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-.firebase/hosting.ZGlzdFxmcm9udGVuZC13ZWItYXBwbGljYXRpb25zXGJyb3dzZXI.cache
 
 # Local Netlify folder
 .netlify
+
+# Environment variables
+.env
+
+# Production files
+/.firebase
+/.vscode
+firebase.json
