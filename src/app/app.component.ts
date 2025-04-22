@@ -11,5 +11,5 @@ import {ToolbarComponent} from "./public/components/toolbar/toolbar.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Frontend-Web-Applications';
+  title = 'AgroTech';
 }

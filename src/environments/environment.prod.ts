@@ -1,28 +1,26 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: process.env['FIREBASE_API_KEY'],
-    authDomain: process.env['FIREBASE_AUTH_DOMAIN'],
-    projectId: process.env['FIREBASE_PROJECT_ID'],
-    storageBucket: process.env['FIREBASE_STORAGE_BUCKET'],
-    messagingSenderId: process.env['FIREBASE_MESSAGING_SENDER_ID'],
-    appId: process.env['FIREBASE_APP_ID']
+    apiKey: import.meta.env["NG_APP_FIREBASE_API_KEY"],
+    authDomain: import.meta.env["NG_APP_FIREBASE_AUTH_DOMAIN"],
+    projectId: import.meta.env["NG_APP_FIREBASE_PROJECT_ID"],
+    storageBucket: import.meta.env["NG_APP_FIREBASE_STORAGE_BUCKET"],
+    messagingSenderId: import.meta.env["NG_APP_FIREBASE_MESSAGING_SENDER_ID"],
+    appId: import.meta.env["NG_APP_FIREBASE_APP_ID"]
   },
-  baseURL: process.env['BASE_URL_PROD'],
-
-  // URLs for the different endpoints
-  userURL: process.env['USER_URL'],
-  authenticationURL: process.env['AUTHENTICATION_URL'],
-  advisorURL: process.env['ADVISOR_URL'],
-  farmerURL: process.env['FARMER_URL'],
-  profileURL: process.env['PROFILE_URL'],
-  resourceURL: process.env['RESOURCE_URL'],
-  appointmentURL: process.env['APPOINTMENT_URL'],
-  expenseURL: process.env['EXPENSE_URL'],
-  notificationURL: process.env['NOTIFICATION_URL'],
-  postURL: process.env['POST_URL'],
-  animalURL: process.env['ANIMAL_URL'],
-  enclosureURL: process.env['ENCLOSURE_URL'],
-  reviewURL: process.env['REVIEW_URL'],
-  availableDateURL: process.env['AVAILABLE_DATE_URL']
+  baseURL: import.meta.env["NG_APP_BASE_URL_PROD"],
+  userURL: import.meta.env["NG_APP_USER_URL"],
+  authenticationURL: import.meta.env["NG_APP_AUTHENTICATION_URL"],
+  advisorURL: import.meta.env["NG_APP_ADVISOR_URL"],
+  farmerURL: import.meta.env["NG_APP_FARMER_URL"],
+  profileURL: import.meta.env["NG_APP_PROFILE_URL"],
+  resourceURL: import.meta.env["NG_APP_RESOURCE_URL"],
+  appointmentURL: import.meta.env["NG_APP_APPOINTMENT_URL"],
+  expenseURL: import.meta.env["NG_APP_EXPENSE_URL"],
+  notificationURL: import.meta.env["NG_APP_NOTIFICATION_URL"],
+  postURL: import.meta.env["NG_APP_POST_URL"],
+  animalURL: import.meta.env["NG_APP_ANIMAL_URL"],
+  enclosureURL: import.meta.env["NG_APP_ENCLOSURE_URL"],
+  reviewURL: import.meta.env["NG_APP_REVIEW_URL"],
+  availableDateURL: import.meta.env["NG_APP_AVAILABLE_DATE_URL"]
 };
