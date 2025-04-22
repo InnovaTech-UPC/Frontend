@@ -80,7 +80,7 @@ export class ViewReviewComponent implements OnInit {
 
   getAdvisor(advisorId: number): void {
     this.advisorApiService.getOne(advisorId).subscribe(advisor => {
-      this.profileApiService.getOne(advisor.userId).subscribe(profile => {
+      this.profileApiService.getProfileByUserId(advisor.userId).subscribe(profile => {
         this.profileDetails = {
           fullname: `${profile.firstName} ${profile.lastName}`,
           photo: profile.photo
@@ -91,7 +91,7 @@ export class ViewReviewComponent implements OnInit {
 
   getFarmer(farmerId: number): void {
     this.farmerApiService.getOne(farmerId).subscribe(farmer => {
-      this.profileApiService.getOne(farmer.userId).subscribe(profile => {
+      this.profileApiService.getProfileByUserId(farmer.userId).subscribe(profile => {
         this.profileDetails = {
           fullname: `${profile.firstName} ${profile.lastName}`,
           photo: profile.photo

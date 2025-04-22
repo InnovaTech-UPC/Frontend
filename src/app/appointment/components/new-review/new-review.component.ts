@@ -88,7 +88,7 @@ export class NewReviewComponent implements OnInit {
 
   getAdvisor(): void {
     this.advisorApiService.getOne(this.advisorId).subscribe(advisor => {
-      this.profileApiService.getOne(advisor.userId).subscribe(profile => {
+      this.profileApiService.getProfileByUserId(advisor.userId).subscribe(profile => {
         this.profile = profile;
         this.advisorDetails = {
           fullname: `${this.profile.firstName} ${this.profile.lastName}`,
