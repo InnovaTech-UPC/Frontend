@@ -1,0 +1,30 @@
+.animal{
+  display: grid;
+  font-family: Roboto, sans-serif;
+  grid-template-columns: 30% 70%;
+  background-color: #FBFBFB;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.animal h2{
+  color: black;
+  font-size: 24px;
+}
+
+.animal p{
+  color: black;
+  font-size: 18px;
+}
+
+.animal img{
+  width: 100px;
+  margin: 0 auto;
+}
+
+.animal:hover{
+  background-color: #dcdeed;
+}

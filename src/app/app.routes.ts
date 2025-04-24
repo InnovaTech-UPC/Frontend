@@ -1,31 +1,33 @@
 import { Routes } from '@angular/router';
 
-import {NotificationsViewComponent} from "./appointment/pages/notifications-view/notifications-view.component";
-
+import {NotificationsViewComponent} from "./profile/pages/notifications-view/notifications-view.component";
 import {ViewAdvisorsSearchComponent} from "./appointment/pages/view-advisors-search/view-advisors-search.component";
 import {ViewReviewComponent} from "./appointment/components/view-review/view-review.component";
 import {LoginComponent} from "./iam/pages/login/login.component";
-
 import {SignupComponent} from "./iam/pages/signup/signup.component";
 import {SignupFarmerComponent} from "./iam/pages/signup-farmer/signup-farmer.component";
 import {SignupAdvisorComponent} from "./iam/pages/signup-advisor/signup-advisor.component";
-
 import {ListAvailabilityScheduleComponent} from "./appointment/pages/list-availability-schedule/list-availability-schedule.component";
 import {AddAvailabilityScheduleComponent} from "./appointment/components/add-availability-schedule/add-availability-schedule.component";
 import {MyAppointmentsComponent} from "./appointment/pages/my-appointments/my-appointments.component";
 import {AppointmentDetailComponent} from "./appointment/components/appointment-detail/appointment-detail.component";
 import {AdvisorDetailComponent} from "./appointment/components/advisor-detail/advisor-detail.component";
-import {
-  MyAppointmentsHistoryComponent
-} from "./appointment/pages/my-appointments-history/my-appointments-history.component";
+import {MyAppointmentsHistoryComponent} from "./appointment/pages/my-appointments-history/my-appointments-history.component";
 import {NewReviewComponent} from "./appointment/components/new-review/new-review.component";
 import {EditReviewComponent} from "./appointment/components/edit-review/edit-review.component";
 import {ReviewsListComponent} from "./appointment/pages/reviews-list/reviews-list.component";
-import {BookAppointmentComponent} from "./appointment/components/book-appointment/book-appointment.component";
+import {BookAppointmentComponent} from "./appointment/pages/book-appointment/book-appointment.component";
 import {AdvisorPostsComponent} from "./post/pages/advisor-posts/advisor-posts.component";
 import {CreatePostComponent} from "./post/pages/create-post/create-post.component";
 import {PostDetailComponent} from "./post/pages/post-detail/post-detail.component";
 import {FarmerPostsComponent} from "./post/pages/farmer-posts/farmer-posts.component";
+import {ProfilePageComponent} from "./profile/pages/profile-page/profile-page.component";
+import {EnclosureListComponent} from "./management/pages/enclosure-list/enclosure-list.component";
+import {AnimalListComponent} from "./management/pages/animal-list/animal-list.component";
+import {AnimalInformationComponent} from "./management/pages/animal-information/animal-information.component";
+import {EnclosureEditorComponent} from "./management/pages/enclosure-editor/enclosure-editor.component";
+import {RegisterEnclosureComponent} from "./management/components/register-enclosure/register-enclosure.component";
+import {RegisterAnimalComponent} from "./management/components/register-animal/register-animal.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -46,7 +48,14 @@ export const routes: Routes = [
   {path: 'granjero/asesor-info/:id/reservar-cita', component: BookAppointmentComponent },
   {path: 'granjero/asesor-resenas/:id', component: ReviewsListComponent },
   {path: 'granjero/publicaciones', component: FarmerPostsComponent },
+  {path: 'granjero/mi-granja', component: EnclosureListComponent },
+  {path: 'granjero/mi-granja/recinto/:id', component: AnimalListComponent },
+  {path: 'granjero/mi-granja/recinto/:id/animal/:animalId', component: AnimalInformationComponent },
+  {path: 'granjero/mi-granja/recinto/:id/editar', component: EnclosureEditorComponent },
+  {path: 'granjero/mi-granja/nuevo-recinto', component: RegisterEnclosureComponent },
+  {path: 'granjero/mi-granja/recinto/:id/nuevo-animal', component: RegisterAnimalComponent },
   {path: 'granjero/notificaciones', component: NotificationsViewComponent },
+  {path: 'granjero/perfil', component: ProfilePageComponent },
   {path: 'asesor/citas', component: MyAppointmentsComponent },
   {path: 'asesor/citas/:id', component: AppointmentDetailComponent },
   {path: 'asesor/historial-citas', component: MyAppointmentsHistoryComponent},
@@ -56,5 +65,6 @@ export const routes: Routes = [
   {path: 'asesor/mis-publicaciones/:id', component: PostDetailComponent },
   {path: 'asesor/notificaciones', component: NotificationsViewComponent },
   {path: 'asesor/horarios', component: ListAvailabilityScheduleComponent },
-  {path: 'asesor/horarios/agregar', component: AddAvailabilityScheduleComponent }
+  {path: 'asesor/horarios/agregar', component: AddAvailabilityScheduleComponent },
+  {path: 'asesor/perfil', component: ProfilePageComponent }
 ];

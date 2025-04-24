@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {Router} from "@angular/router";
 import {NgForOf, NgIf} from "@angular/common";
 import {Post} from "../../models/post.model";

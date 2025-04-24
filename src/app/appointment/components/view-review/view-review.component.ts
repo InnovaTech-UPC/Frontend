@@ -8,15 +8,15 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MatIcon} from "@angular/material/icon";
 import {NgForOf, NgIf} from "@angular/common";
 
-import {Advisor} from "../../../user/models/advisor.model";
+import {Advisor} from "../../../profile/models/advisor.model";
 import {Appointment} from "../../models/appointment.model";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {AppointmentApiService} from "../../services/appointment-api.service";
 import {ReviewApiService} from "../../services/review-api.service";
 import {MatCardModule} from "@angular/material/card";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
-import {FarmerApiService} from "../../../user/services/farmer-api.service";
-import {UserApiService} from "../../../user/services/user-api.service";
+import {FarmerApiService} from "../../../profile/services/farmer-api.service";
+import {UserApiService} from "../../../profile/services/user-api.service";
 
 @Component({
   selector: 'app-view-review',
@@ -80,7 +80,7 @@ export class ViewReviewComponent implements OnInit {
 
   getAdvisor(advisorId: number): void {
     this.advisorApiService.getOne(advisorId).subscribe(advisor => {
-      this.profileApiService.getOne(advisor.userId).subscribe(profile => {
+      this.profileApiService.getProfileByUserId(advisor.userId).subscribe(profile => {
         this.profileDetails = {
           fullname: `${profile.firstName} ${profile.lastName}`,
           photo: profile.photo
@@ -91,7 +91,7 @@ export class ViewReviewComponent implements OnInit {
 
   getFarmer(farmerId: number): void {
     this.farmerApiService.getOne(farmerId).subscribe(farmer => {
-      this.profileApiService.getOne(farmer.userId).subscribe(profile => {
+      this.profileApiService.getProfileByUserId(farmer.userId).subscribe(profile => {
         this.profileDetails = {
           fullname: `${profile.firstName} ${profile.lastName}`,
           photo: profile.photo

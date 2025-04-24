@@ -13,9 +13,9 @@ import {DateAdapter, MAT_DATE_LOCALE} from "@angular/material/core";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
-import {UserApiService} from "../../../user/services/user-api.service";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
-import {Advisor} from "../../../user/models/advisor.model";
+import {UserApiService} from "../../../profile/services/user-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
+import {Advisor} from "../../../profile/models/advisor.model";
 import {AuthenticationApiService} from "../../services/authentication-api.service";
 import {StorageService} from "../../../shared/services/storage.service";
 import {MatIcon} from "@angular/material/icon";
@@ -134,7 +134,7 @@ export class RegisterAdvisorComponent {
       this.router.navigateByUrl('/asesor/citas');
       this.snackBar.open('Bienvenid@ ' + this.registerForm.value.firstName + ' 🤗', 'Cerrar', { duration: 2000 });
     } catch (error) {
-      this.snackBar.open('Error al registrar el asesor😥', 'Cerrar', {duration: 5000});
+      this.snackBar.open('Error al registrar el asesor😥', 'Cerrar', {duration: 2000});
     }
   }
 
@@ -162,7 +162,7 @@ export class RegisterAdvisorComponent {
         this.advisorApiService.setAdvisorId(advisor.id);
       });
     } catch (error) {
-      this.snackBar.open('Error al crear el perfil😥', 'Cerrar', { duration: 5000 });
+      this.snackBar.open('Error al crear el perfil😥', 'Cerrar', { duration: 2000 });
       throw error;
     }
   }

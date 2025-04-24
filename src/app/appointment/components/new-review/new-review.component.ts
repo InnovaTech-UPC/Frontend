@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Profile} from "../../../profile/models/profile.model";
 import {Review} from "../../models/review.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {ReviewApiService} from "../../services/review-api.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -12,7 +12,7 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
 import {NgForOf, NgIf} from "@angular/common";
-import {FarmerApiService} from "../../../user/services/farmer-api.service";
+import {FarmerApiService} from "../../../profile/services/farmer-api.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
@@ -88,7 +88,7 @@ export class NewReviewComponent implements OnInit {
 
   getAdvisor(): void {
     this.advisorApiService.getOne(this.advisorId).subscribe(advisor => {
-      this.profileApiService.getOne(advisor.userId).subscribe(profile => {
+      this.profileApiService.getProfileByUserId(advisor.userId).subscribe(profile => {
         this.profile = profile;
         this.advisorDetails = {
           fullname: `${this.profile.firstName} ${this.profile.lastName}`,

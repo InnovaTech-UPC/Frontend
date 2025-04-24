@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatIconButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
 import {MatInput} from "@angular/material/input";
 import {FormBuilder, FormGroup, NgForm, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'; // Importa MatSnackBa
 import { Router } from '@angular/router'; // Importa Router
 import { AvailableDate } from "../../models/available_date.model";
 import { AvailableDateApiService } from "../../services/available-date-api.service";
-import { AdvisorApiService } from "../../../user/services/advisor-api.service";
+import { AdvisorApiService } from "../../../profile/services/advisor-api.service";
 import {NgIf} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
 
@@ -16,17 +16,18 @@ import {MatIcon} from "@angular/material/icon";
 @Component({
   selector: 'app-add-availability-schedule',
   standalone: true,
-    imports: [
-        MatFormField,
-        MatButton,
-        MatLabel,
-        RouterLink,
-        MatInput,
-        ReactiveFormsModule,
-        MatError,
-        NgIf,
-        MatIcon
-    ],
+  imports: [
+    MatFormField,
+    MatButton,
+    MatLabel,
+    RouterLink,
+    MatInput,
+    ReactiveFormsModule,
+    MatError,
+    NgIf,
+    MatIcon,
+    MatIconButton
+  ],
   templateUrl: './add-availability-schedule.component.html',
   styleUrl: './add-availability-schedule.component.css'
 })
@@ -71,19 +72,19 @@ export class AddAvailabilityScheduleComponent implements OnInit{
 
     this.availableDateService.create(newAvailableDate).subscribe(() => {
       this.snackBar.open('Horario disponible creado con éxito🎉', 'Cerrar', {
-        duration: 5000,
+        duration: 2000,
       });
-      this.goToAvailableDates();
+      this.goBack();
     }, error => {
       this.snackBar.open('Error al crear el horario disponible😓', 'Cerrar', {
-        duration: 5000,
+        duration: 2000,
       });
       console.error(error);
     });
   }
 
-  goToAvailableDates() {
-    this.router.navigate(['/asesor/horarios']);
+  goBack() {
+    window.history.back();
   }
 
   validTimeValidator(formGroup: FormGroup) {

@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-dialog',
   templateUrl: 'dialog.component.html',
+  standalone: true,
   styleUrl: 'dialog.component.css'
 })
 export class DialogComponent {

@@ -1,0 +1,7 @@
+<mat-card class="animal" (click)="getInformation(animal.id)">
+  <img mat-card-image src="https://firebasestorage.googleapis.com/v0/b/agroconnect-demo.appspot.com/o/images%2Fanimal.png?alt=media&token=53864c26-7502-4b88-80e7-e282e60d87b4" alt="animal {{animal.id}}">
+  <mat-card-content class="animal-info">
+    <p>Nombre: {{animal.name}}</p>
+    <p>Raza: {{animal.breed}}</p>
+  </mat-card-content>
+</mat-card>

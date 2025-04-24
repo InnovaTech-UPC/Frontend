@@ -6,10 +6,10 @@ import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
 import {NgForOf} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AdvisorApiService} from "../../../user/services/advisor-api.service";
+import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {ReviewApiService} from "../../services/review-api.service";
-import {FarmerApiService} from "../../../user/services/farmer-api.service";
+import {FarmerApiService} from "../../../profile/services/farmer-api.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Review} from "../../models/review.model";
 
