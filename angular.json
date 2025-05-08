@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Frontend-Web-Applications": {
+    "AgroTech": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@ngx-env/builder:application",
           "options": {
-            "outputPath": "dist/frontend-web-applications",
+            "outputPath": "dist/agrotech",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@ngx-env/builder:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Frontend-Web-Applications:build:production"
+              "buildTarget": "AgroTech:build:production"
             },
             "development": {
-              "buildTarget": "Frontend-Web-Applications:build:development"
+              "buildTarget": "AgroTech:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@ngx-env/builder:extract-i18n",
           "options": {
-            "buildTarget": "Frontend-Web-Applications:build"
+            "buildTarget": "AgroTech:build"
           }
         },
         "test": {
@@ -111,12 +111,12 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "frontend-web-applications:build:production",
-              "serveTarget": "frontend-web-applications:serve:production"
+              "buildTarget": "agrotech:build:production",
+              "serveTarget": "agrotech:serve:production"
             },
             "development": {
-              "buildTarget": "frontend-web-applications:build:development",
-              "serveTarget": "frontend-web-applications:serve:development"
+              "buildTarget": "agrotech:build:development",
+              "serveTarget": "agrotech:serve:development"
             }
           },
           "defaultConfiguration": "production"
