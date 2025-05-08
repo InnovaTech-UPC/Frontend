@@ -8,6 +8,11 @@ import {Post} from "../../models/post.model";
 import {PostCardComponent} from "../../components/post-card/post-card.component";
 import {PostApiService} from "../../services/post-api.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Observable} from "rxjs";
+import {
+  ConfirmationDialogComponent
+} from "../../../public/components/confirmation-dialog/confirmation-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'advisor-posts',
@@ -26,6 +31,7 @@ export class AdvisorPostsComponent implements OnInit {
   constructor(private advisorApiService: AdvisorApiService,
               private postApiService: PostApiService,
               private snackBar: MatSnackBar,
+              private dialog: MatDialog,
               private router: Router) {
   }
   advisorId = 0;
@@ -53,19 +59,34 @@ export class AdvisorPostsComponent implements OnInit {
   }
 
   deletePost(id: number) {
-    this.postApiService.delete(id).subscribe({
-      next: () => {
-        this.snackBar.open('Publicación eliminada existosamente', 'Cerrar', {
-          duration: 2000,
-        });
-        this.getPosts(this.advisorId);
-      },
-      error: (error) => {
-        this.snackBar.open('Error eliminado la publicación', 'Cerrar', {
-          duration: 2000,
-        });
-        console.error('Error deleting post:', error);
+    this.confirmMessage(`¿Estas seguro de querer eliminar la información del animal?`).subscribe(result => {
+      if(result) {
+        this.postApiService.delete(id).subscribe({
+          next: () => {
+            this.snackBar.open('Publicación eliminada existosamente', 'Cerrar', {
+              duration: 2000,
+            });
+            this.getPosts(this.advisorId);
+          },
+          error: (error) => {
+            this.snackBar.open('Error eliminado la publicación', 'Cerrar', {
+              duration: 2000,
+            });
+            console.error('Error deleting post:', error);
+          }
+        })
+      } else {
+        console.log('User cancelled the deletion of post');
       }
     })
+  }
+
+  confirmMessage(message: string): Observable<boolean> {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent,
+      {data : {
+          message: message
+        }
+      });
+    return dialogRef.afterClosed();
   }
 }
