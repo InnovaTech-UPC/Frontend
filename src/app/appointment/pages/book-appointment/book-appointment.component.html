@@ -20,7 +20,7 @@
           <mat-label>Selecciona un horario</mat-label>
           <mat-select [(value)]="selectedDateIndex">
             <mat-option *ngFor="let availableDate of availableDates; let i = index" [value]="i">
-              {{ availableDate.availableDate }} {{ availableDate.startTime }} - {{ availableDate.endTime }}
+              {{ availableDate.scheduledDate }} {{ availableDate.startTime }} - {{ availableDate.endTime }}
             </mat-option>
           </mat-select>
         </mat-form-field>

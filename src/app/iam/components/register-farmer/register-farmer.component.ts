@@ -21,6 +21,7 @@ import {StorageService} from "../../../shared/services/storage.service";
 import {MatIcon} from "@angular/material/icon";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 import {Farmer} from "../../../profile/models/farmer.model";
+import {MatCheckbox} from "@angular/material/checkbox";
 
 @Component({
   selector: 'register-farmer',
@@ -44,7 +45,8 @@ import {Farmer} from "../../../profile/models/farmer.model";
     NgIf,
     ReactiveFormsModule,
     MatIcon,
-    MatProgressSpinner
+    MatProgressSpinner,
+    MatCheckbox
   ],
   templateUrl: './register-farmer.component.html',
   styleUrl: './register-farmer.component.css',
@@ -63,7 +65,8 @@ export class RegisterFarmerComponent {
       city: new FormControl('', [Validators.required]),
       country: new FormControl('', [Validators.required]),
       birthDate: new FormControl(null, [Validators.required]),
-      description: new FormControl('')
+      description: new FormControl(''),
+      terms: new FormControl(false, [Validators.requiredTrue]),
     }
   );
 
@@ -128,7 +131,7 @@ export class RegisterFarmerComponent {
 
       await this.createProfile(userId);
 
-      this.router.navigateByUrl('/granjero/mi-granja');
+      this.router.navigateByUrl('/granjero/citas');
       this.snackBar.open('Bienvenid@ ' + this.registerForm.value.firstName + ' 🤗', 'Cerrar', { duration: 2000 });
     } catch (error) {
       this.snackBar.open('Error al registrar el granjero😥', 'Cerrar', {duration: 2000});
@@ -162,6 +165,7 @@ export class RegisterFarmerComponent {
       throw error;
     }
   }
+
 
   goBack() {
     this.registerForm.reset();

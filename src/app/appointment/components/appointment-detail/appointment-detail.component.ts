@@ -12,11 +12,9 @@ import {UserApiService} from "../../../profile/services/user-api.service";
 import {FarmerApiService} from "../../../profile/services/farmer-api.service";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {CancelDialogComponent} from "../cancel-dialog/cancel-dialog.component";
-import {NotificationApiService} from "../../services/notification-api.service";
 import {AvailableDateApiService} from "../../services/available-date-api.service";
-import {AvailableDate} from "../../models/available_date.model";
-import {Notification} from "../../models/notification.model";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AvailableDate} from "../../models/available_date.model";
 
 @Component({
   selector: 'app-appointment-detail',
@@ -42,12 +40,9 @@ export class AppointmentDetailComponent implements OnInit {
   appointmentId = 0;
   appointment: Appointment = {
     id: 0,
-    advisorId: 0,
     farmerId: 0,
-    scheduledDate: '',
+    availableDateId: 0,
     status: '',
-    startTime: '',
-    endTime: '',
     meetingUrl: '',
     message: ''
   };
@@ -55,6 +50,15 @@ export class AppointmentDetailComponent implements OnInit {
     fullname: '',
     photo: ''
   };
+  availableDate: AvailableDate = {
+    id: 0,
+    scheduledDate: '',
+    startTime: '',
+    endTime: '',
+    advisorId: 0,
+    status: ''
+  };
+
   isFarmer = false;
   userId = 0;
 
@@ -63,7 +67,6 @@ export class AppointmentDetailComponent implements OnInit {
               private farmerApiService: FarmerApiService,
               private profileApiService: ProfileApiService,
               private userApiService: UserApiService,
-              private notificationApiService: NotificationApiService,
               private availableDateApiService: AvailableDateApiService,
               private dialog: MatDialog,
               private router: Router,
@@ -82,10 +85,13 @@ export class AppointmentDetailComponent implements OnInit {
     if (this.isFarmer) {
       this.appointmentApiService.getOne(this.appointmentId).subscribe((appointment) => {
         this.appointment = appointment;
-        this.advisorApiService.getOne(appointment.advisorId).subscribe((advisor) => {
-          this.profileApiService.getProfileByUserId(advisor.userId).subscribe((profile) => {
-            this.profileInfo.fullname = profile.firstName + ' ' + profile.lastName;
-            this.profileInfo.photo = profile.photo;
+        this.availableDateApiService.getOne(appointment.availableDateId).subscribe((availableDate) => {
+          this.availableDate = availableDate;
+          this.advisorApiService.getOne(availableDate.advisorId).subscribe((advisor) => {
+            this.profileApiService.getProfileByUserId(advisor.userId).subscribe((profile) => {
+              this.profileInfo.fullname = profile.firstName + ' ' + profile.lastName;
+              this.profileInfo.photo = profile.photo;
+            });
           });
         });
       });
@@ -96,6 +102,9 @@ export class AppointmentDetailComponent implements OnInit {
           this.profileApiService.getProfileByUserId(farmer.userId).subscribe((profile) => {
             this.profileInfo.fullname = profile.firstName + ' ' + profile.lastName;
             this.profileInfo.photo = profile.photo;
+          });
+          this.availableDateApiService.getOne(appointment.availableDateId).subscribe((availableDate) => {
+            this.availableDate = availableDate;
           });
         });
       });
@@ -132,99 +141,19 @@ export class AppointmentDetailComponent implements OnInit {
   cancelAppointment(reason: string): void {
     this.appointmentApiService.delete(this.appointmentId).subscribe({
       next: () => {
-        let availableDate: AvailableDate = {
-          id: 0,
-          advisorId: this.appointment.advisorId,
-          availableDate: this.appointment.scheduledDate,
-          startTime: this.appointment.startTime,
-          endTime: this.appointment.endTime,
-        };
-        this.availableDateApiService.create(availableDate).subscribe({
-          next: () => {
-            let notification: Notification;
-            this.profileApiService.getProfileByUserId(this.userId).subscribe({
-              next: (profile) => {
-                let name = profile.firstName + ' ' + profile.lastName;
-                if (this.isFarmer) {
-                  // se notifica al asesor
-                  this.advisorApiService.getOne(this.appointment.advisorId).subscribe({
-                    next: (advisor) => {
-                      notification = {
-                        id: 0,
-                        userId: advisor.userId,
-                        title: `Cita cancelada por ${name}`,
-                        message: `La cita programada para el ${this.appointment.scheduledDate} a las ${this.appointment.startTime} ha sido cancelada. Motivo: ${reason}`,
-                        sendAt: new Date().toISOString()
-                      };
-                      this.notificationApiService.create(notification).subscribe({
-                        next: () => {
-                          this.snackBar.open('Cita cancelada correctamente 👍', 'Cerrar', {
-                            duration: 3000,
-                          });
-                          this.router.navigate(['/granjero/citas']);
-                        },
-                        error: (error) => {
-                          this.snackBar.open('Error al cancelar la cita 🤐', 'Cerrar', {
-                            duration: 3000,
-                          });
-                          console.error('Error sending notification:', error);
-                        }
-                      });
-                    }, error: error => {
-                      console.error('Error fetching advisor:', error);
-                    }
-                  })
-                } else {
-                  // se notifica al granjero
-                  this.farmerApiService.getOne(this.appointment.farmerId).subscribe({
-                    next: (farmer) => {
-                      notification = {
-                        id: 0,
-                        userId: farmer.userId,
-                        title: `Cita cancelada por ${name}`,
-                        message: `La cita programada para el ${this.appointment.scheduledDate} a las ${this.appointment.startTime} ha sido cancelada. Motivo: ${reason}`,
-                        sendAt: new Date().toISOString()
-                      };
-                      this.notificationApiService.create(notification).subscribe({
-                        next: () => {
-                          this.snackBar.open('Cita cancelada correctamente 👍', 'Cerrar', {
-                            duration: 3000,
-                          });
-                          this.router.navigate(['/asesor/citas']);
-                        },
-                        error: (error) => {
-                          this.snackBar.open('Error al cancelar la cita 🤐', 'Cerrar', {
-                            duration: 3000,
-                          });
-                          console.error('Error sending notification:', error);
-                        }
-                      });
-                    }, error: error => {
-                      console.error('Error fetching farmer:', error);
-                    }
-                  })
-
-                }
-              },
-              error: (error) => {
-                console.error('Error fetching profile:', error);
-              }
-            })
-          }
+        this.snackBar.open('Cita cancelada con éxito', 'Cerrar', {
+          duration: 2000
         });
-        console.log('Appointment canceled with reason:', reason);
+        this.router.navigate(['/granjero/citas']);
       },
       error: (error) => {
         console.error('Error canceling appointment:', error);
       }
     })
-
   }
-
 
   goBack() {
     window.history.back();
   }
-
 
 }

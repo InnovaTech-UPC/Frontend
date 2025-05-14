@@ -62,12 +62,13 @@ export class AddAvailabilityScheduleComponent implements OnInit{
     let startTime = startTimeParts[0] + ':' + startTimeParts[1];
     let endTime = endTimeParts[0] + ':' + endTimeParts[1];
 
-    let newAvailableDate = {
+    let newAvailableDate: AvailableDate = {
       id: 0,
       advisorId: this.advisorId,
-      availableDate: formattedDate,
+      scheduledDate: formattedDate,
       startTime: startTime,
-      endTime: endTime
+      endTime: endTime,
+      status: 'AVAILABLE'
     }
 
     this.availableDateService.create(newAvailableDate).subscribe(() => {
