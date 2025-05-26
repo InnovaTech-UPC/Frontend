@@ -13,6 +13,8 @@ import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {Router} from "@angular/router";
 import {forEach} from "lodash";
 import {MatIcon} from "@angular/material/icon";
+import {AvailableDateApiService} from "../../services/available-date-api.service";
+import {AvailableDate} from "../../models/available_date.model";
 
 @Component({
   selector: 'app-my-appointments',
@@ -42,11 +44,13 @@ export class MyAppointmentsComponent implements OnInit {
   appointments: Appointment[] = [];
   profileDetails: any = {};
   isFarmer = false;
+  availableDates: AvailableDate[] = [];
 
   constructor(
     private farmerApiService: FarmerApiService,
     private advisorApiService: AdvisorApiService,
     private appointmentApiService: AppointmentApiService,
+    private availableDateApiService: AvailableDateApiService,
     private userApiService: UserApiService,
     private profileApiService: ProfileApiService,
     private router: Router
@@ -70,20 +74,35 @@ export class MyAppointmentsComponent implements OnInit {
             forEach(appointments, (appointment) => {
               if (appointment.status === 'PENDING') {
                 this.appointments.push(appointment);
-                this.advisorApiService.getOne(appointment.advisorId).subscribe({
-                  next: advisor => {
-                    this.profileApiService.getProfileByUserId(advisor.userId).subscribe({
-                      next: profile => {
-                        this.profileDetails[advisor.id] = {
-                          fullname: `${profile.firstName} ${profile.lastName}`,
-                          photo: profile.photo
-                        };
+                this.availableDateApiService.getOne(appointment.availableDateId).subscribe({
+                  next: availableDate => {
+                    this.advisorApiService.getOne(availableDate.advisorId).subscribe({
+                      next: advisor => {
+                        this.profileApiService.getProfileByUserId(advisor.userId).subscribe({
+                          next: profile => {
+                            this.profileDetails[advisor.id] = {
+                              fullname: `${profile.firstName} ${profile.lastName}`,
+                              photo: profile.photo
+                            };
+
+                              this.availableDateApiService.getOne(appointment.availableDateId).subscribe({
+                                next: availableDate => {
+                                  this.availableDates[appointment.availableDateId] = availableDate;
+                                }, error: error => {
+                                  console.error('Error fetching available date:', error);
+                                }
+                              })
+
+                          }, error: error => {
+                            console.error('Error fetching profile:', error);
+                          }
+                        });
                       }, error: error => {
-                        console.error('Error fetching profile:', error);
+                        console.error('Error fetching advisor:', error);
                       }
-                    });
+                    })
                   }, error: error => {
-                    console.error('Error fetching advisor:', error);
+                    console.error('Error fetching available date:', error);
                   }
                 })
               }
@@ -109,6 +128,15 @@ export class MyAppointmentsComponent implements OnInit {
                         fullname: `${profile.firstName} ${profile.lastName}`,
                         photo: profile.photo
                       };
+
+                        this.availableDateApiService.getOne(appointment.availableDateId).subscribe({
+                          next: availableDate => {
+                            this.availableDates[appointment.availableDateId] = availableDate;
+                          }, error: error => {
+                            console.error('Error fetching available date:', error);
+                          }
+                        })
+
                     }, error: error => {
                       console.error('Error fetching profile:', error);
                     }
@@ -125,7 +153,6 @@ export class MyAppointmentsComponent implements OnInit {
         }
       });
     }
-
   }
 
   formatDate(dateTime: string): string {
@@ -156,8 +183,8 @@ export class MyAppointmentsComponent implements OnInit {
 
   sortAppointmentsByDate(): void {
     this.appointments.sort((a, b) => {
-      const dateA = new Date(a.scheduledDate).getTime();
-      const dateB = new Date(b.scheduledDate).getTime();
+      const dateA = new Date(this.availableDates[a.id].scheduledDate).getTime();
+      const dateB = new Date(this.availableDates[b.id].scheduledDate).getTime();
       return dateA - dateB; // Ascending order
     });
   }

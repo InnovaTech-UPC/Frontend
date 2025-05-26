@@ -48,8 +48,8 @@ export class ListAvailabilityScheduleComponent implements OnInit{
     this.availableDateApiService.getAvailableDatesByAdvisorId(this.advisorId).subscribe({
       next: (response) => {
         this.dates = response.sort((a, b) => {
-          const dateA = new Date(`${a.availableDate}T${a.startTime}`);
-          const dateB = new Date(`${b.availableDate}T${b.startTime}`);
+          const dateA = new Date(`${a.scheduledDate}T${a.startTime}`);
+          const dateB = new Date(`${b.scheduledDate}T${b.startTime}`);
           return dateA.getTime() - dateB.getTime();
         });
         console.log("Horarios disponibles obtenidos con éxito:", this.dates);

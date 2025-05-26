@@ -15,7 +15,7 @@
             <div class="header-content">
               <mat-card-title>
                 <div *ngIf="isFarmer" class="img-box">
-                  <img [src]="profileDetails[appointment.advisorId]?.photo" alt="Foto de {{profileDetails[appointment.advisorId]?.fullname}}" class="photo">
+                  <img [src]="profileDetails[availableDates[appointment.availableDateId].advisorId]?.photo" alt="Foto de {{profileDetails[availableDates[appointment.availableDateId].advisorId]?.fullname}}" class="photo">
                 </div>
                 <div *ngIf="!isFarmer" class="img-box">
                   <img [src]="profileDetails[appointment.farmerId]?.photo" alt="Foto del {{profileDetails[appointment.farmerId]?.fullname}}" class="photo">
@@ -23,14 +23,14 @@
               </mat-card-title>
               <mat-card-subtitle>
                 <div *ngIf="isFarmer">
-                  <p class="title">{{ profileDetails[appointment.advisorId]?.fullname }}</p>
+                  <p class="title">{{ profileDetails[availableDates[appointment.availableDateId].advisorId]?.fullname }}</p>
                 </div>
                 <div *ngIf="!isFarmer">
                   <p class="title">{{ profileDetails[appointment.farmerId]?.fullname }}</p>
                 </div>
                 <div class="appointment-info">
-                  <p>{{ formatDate(appointment.scheduledDate) }}</p>
-                  <p>{{ appointment.startTime }} - {{ appointment.endTime }}</p>
+                  <p>{{ formatDate(availableDates[appointment.availableDateId].scheduledDate) }}</p>
+                  <p>{{ availableDates[appointment.availableDateId].startTime }} - {{ availableDates[appointment.availableDateId].endTime }}</p>
                 </div>
               </mat-card-subtitle>
             </div>

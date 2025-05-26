@@ -1,7 +1,8 @@
 export interface AvailableDate {
   id: number;
   advisorId: number;
-  availableDate: string;
+  scheduledDate: string;
   startTime: string;
   endTime: string;
+  status: string;
 }

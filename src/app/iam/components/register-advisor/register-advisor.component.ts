@@ -22,33 +22,35 @@ import {MatIcon} from "@angular/material/icon";
 import {Profile} from "../../../profile/models/profile.model";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {MatCheckbox} from "@angular/material/checkbox";
 
 @Component({
   selector: 'register-advisor',
   standalone: true,
-  imports: [
-    MatButton,
-    MatCard,
-    MatCardContent,
-    MatCardHeader,
-    MatCardTitle,
-    MatDatepickerModule,
-    MatDatepickerInput,
-    MatDatepickerToggle,
-    MatError,
-    MatFormField,
-    MatHint,
-    MatNativeDateModule,
-    MatInput,
-    MatLabel,
-    MatOption,
-    MatSelect,
-    MatSuffix,
-    NgIf,
-    ReactiveFormsModule,
-    MatIcon,
-    MatProgressSpinner
-  ],
+    imports: [
+        MatButton,
+        MatCard,
+        MatCardContent,
+        MatCardHeader,
+        MatCardTitle,
+        MatDatepickerModule,
+        MatDatepickerInput,
+        MatDatepickerToggle,
+        MatError,
+        MatFormField,
+        MatHint,
+        MatNativeDateModule,
+        MatInput,
+        MatLabel,
+        MatOption,
+        MatSelect,
+        MatSuffix,
+        NgIf,
+        ReactiveFormsModule,
+        MatIcon,
+        MatProgressSpinner,
+        MatCheckbox
+    ],
   templateUrl: './register-advisor.component.html',
   styleUrl: './register-advisor.component.css',
   providers: [
@@ -67,7 +69,8 @@ export class RegisterAdvisorComponent {
       birthDate: new FormControl(null, [Validators.required]),
       description: new FormControl('', [Validators.required]),
       occupation: new FormControl('', [Validators.required]),
-      experience: new FormControl('', [Validators.required, Validators.min(1), Validators.max(70)])
+      experience: new FormControl('', [Validators.required, Validators.min(1), Validators.max(70)]),
+      terms: new FormControl(false, [Validators.requiredTrue]),
     }
   );
   minDate: Date;
