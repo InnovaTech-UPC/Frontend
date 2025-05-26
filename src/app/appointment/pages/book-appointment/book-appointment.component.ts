@@ -87,8 +87,8 @@ export class BookAppointmentComponent implements OnInit {
     this.availableDateApiService.getAvailableDatesByAdvisorId(advisorId).subscribe({
       next: dates => {
       this.availableDates = dates.sort((a, b) => {
-        const dateA = new Date(a.availableDate).getTime();
-        const dateB = new Date(b.availableDate).getTime();
+        const dateA = new Date(a.scheduledDate).getTime();
+        const dateB = new Date(b.scheduledDate).getTime();
         if (dateA === dateB) {
           const timeA = new Date(`1970-01-01T${a.startTime}`).getTime();
           const timeB = new Date(`1970-01-01T${b.startTime}`).getTime();
@@ -102,38 +102,29 @@ export class BookAppointmentComponent implements OnInit {
   }
 
   createAppointment(): void {
-
     let selectedDate = this.availableDates[this.selectedDateIndex];
     let newAppointment: Appointment = {
       id: 0,
-      advisorId: this.advisorId,
       farmerId: this.farmerId,
-      scheduledDate: selectedDate.availableDate,
+      availableDateId: selectedDate.id,
       status: "PENDING",
       message: this.appointmentForm.value.message,
-      startTime: selectedDate.startTime,
-      endTime: selectedDate.endTime
     };
 
     this.appointmentApiService.create(newAppointment).subscribe({
       next:
       () => {
-      this.availableDateApiService.delete(selectedDate.id,).subscribe({
-        next: () => {
-          this.snackBar.open('Cita reservada🤩', 'Cerrar', {
+        this.snackBar.open('Cita reservada🤩', 'Cerrar', {
           duration: 2000
-          });
-          this.router.navigate(['/granjero/citas']);
-        }, error: error => {
-          console.log('Error deleting available date:', error);
-        }
-      });
-    }, error: error => {
-      this.snackBar.open('Error al reservar la cita😥', 'Cerrar', {
-        duration: 2000
-      });
-      console.log('Error creating appointment:', error);
-    }});
+        });
+        this.router.navigate(['/granjero/citas']);
+        },
+      error: error => {
+        this.snackBar.open('Error al reservar la cita😥', 'Cerrar', {
+          duration: 2000
+        });
+        console.log('Error creating appointment:', error);
+      }});
   }
 
   goBack() {
