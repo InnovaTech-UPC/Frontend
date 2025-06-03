@@ -6,7 +6,7 @@
 }
 
 .container mat-card {
-  width: 50%;
+  width: 100%;
   padding: 20px;
 }
 
@@ -22,13 +22,13 @@
   --mdc-outlined-text-field-focus-label-text-color: #7ec306;
 }
 
-button{
+button {
   width: 60%;
   height: 40px;
   margin: 12px;
 }
 
-button:enabled{
+button:enabled {
   color: white;
 }
 
@@ -38,13 +38,12 @@ button:enabled{
 }
 
 .title {
-  margin: 5px;
-  text-align: center;
-  color: #27AE60;
+  color: #092C4C;
+  font-size: 28px;
   font-weight: bold;
-  font-size: x-large;
+  text-align: center;
+  margin: 10px;
 }
-
 
 .register-user input {
   width: 100%;
@@ -71,8 +70,10 @@ button:enabled{
 
 .image-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .profile-image {
@@ -82,17 +83,21 @@ button:enabled{
 
 .submit-button:enabled {
   background-color: #092C4C;
-  color: #FFFFFF
+  color: #FFFFFF;
 }
 
-@media (max-width: 850px) {
-  .container mat-card {
-    width: 80%;
-  }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-@media (max-width: 375px) {
-  .container mat-card {
-    width: 100%;
+.form-field {
+  max-width: 350px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 }
