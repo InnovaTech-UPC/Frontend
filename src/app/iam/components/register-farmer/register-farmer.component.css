@@ -6,37 +6,45 @@
 }
 
 .container mat-card {
-  width: 50%;
+  width: 100%;
   padding: 20px;
 }
 
 .register-user {
   display: flex;
   flex-direction: column;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 .title {
-  margin: 5px;
-  text-align: center;
-  color: #DD763D;
+  color: #092C4C;
+  font-size: 28px;
   font-weight: bold;
-  font-size: x-large;
+  text-align: center;
+  margin: 10px;
 }
 
-.register-user mat-form-field{
+.register-user mat-form-field {
   width: 100%;
   --mdc-outlined-text-field-focus-outline-color: #7ec306;
   --mdc-outlined-text-field-focus-label-text-color: #7ec306;
 }
 
-button{
-  width: 60%;
-  height: 40px;
-  margin: 12px;
+mat-form-field {
+  padding: 1px;
 }
 
-button:enabled{
+mat-form-field input {
+  height: 20px;
+}
+
+button {
+  width: 45%;
+  height: 40px;
+  margin: 8px;
+}
+
+button:enabled {
   color: white;
 }
 
@@ -50,7 +58,7 @@ button:enabled{
 }
 
 #imageName {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 #imageButton {
@@ -60,30 +68,33 @@ button:enabled{
   background-color: #3E64FF;
   color: #FFFFFF;
   padding: 15px;
-  border-radius: 35px;
+  border-radius: 20px;
   text-align: center;
   align-content: center;
   width: 50%;
   cursor: pointer;
-  margin: 10px;
+  margin: 8px;
 }
 
 .image-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
+
 
 .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px; /* Reduce spacing */
 }
 
 .submit-button:enabled {
   background-color: #092C4C;
-  color: #FFFFFF
+  color: #FFFFFF;
 }
 
 .profile-image {
@@ -91,14 +102,18 @@ button:enabled{
   height: auto;
 }
 
-@media (max-width: 850px) {
-  .container mat-card {
-    width: 80%;
-  }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-@media (max-width: 375px) {
-  .container mat-card {
-    width: 100%;
+.form-field {
+  max-width: 350px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 }
