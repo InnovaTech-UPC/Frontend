@@ -12,7 +12,6 @@ import {FarmerApiService} from "../../../profile/services/farmer-api.service";
 import {AdvisorApiService} from "../../../profile/services/advisor-api.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthenticationApiService} from "../../services/authentication-api.service";
-import {MatDrawer} from "@angular/material/sidenav";
 import {ProfileApiService} from "../../../profile/services/profile-api.service";
 
 @Component({
