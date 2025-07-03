@@ -95,9 +95,8 @@ export class ForumComponent implements OnInit {
       const reply = { id: 0, userId, forumPostId: postId, content: replyContent };
       this.forumReplyApiService.create(reply).subscribe({
         next: () => {
-          alert('Respuesta enviada correctamente.');
-          this.newReplyContent[postId] = '';
-          this.loadReplies(postId);
+          this.newReplyContent[postId] = ''; // Clear the reply content
+          this.loadReplies(postId); // Reload replies
         },
         error: () => {
           alert('Error al enviar la respuesta.');
