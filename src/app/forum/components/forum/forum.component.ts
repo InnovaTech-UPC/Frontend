@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { ForumPost } from '../../models/forum_post.model';
 import { ForumPostApiService } from '../../services/forum-post-api.service';
 import { ForumFavoriteApiService } from '../../services/forum-favorite-api.service';
-import {ForumFavorite} from "../../models/forum_favorite.model";
-import {MatButton} from "@angular/material/button";
-import {Router} from "@angular/router";
-import {UserApiService} from "../../../profile/services/user-api.service";
-
+import { ForumReplyApiService } from '../../services/forum-reply-api.service';
+import { ForumReply } from '../../models/forum_reply.model';
+import { MatButton } from '@angular/material/button';
+import { Router } from '@angular/router';
+import { UserApiService } from '../../../profile/services/user-api.service';
 
 @Component({
   selector: 'app-forum',
@@ -20,6 +20,9 @@ import {UserApiService} from "../../../profile/services/user-api.service";
 export class ForumComponent implements OnInit {
   posts: ForumPost[] = [];
   favoriteIds: number[] = [];
+  replies: { [key: number]: ForumReply[] } = {};
+  showReplies: { [key: number]: boolean } = {};
+  newReplyContent: { [key: number]: string } = {};
 
   newPost: Partial<ForumPost> = {
     title: '',
@@ -29,9 +32,11 @@ export class ForumComponent implements OnInit {
   constructor(
     private postService: ForumPostApiService,
     private favoriteService: ForumFavoriteApiService,
+    private forumReplyApiService: ForumReplyApiService,
     private userApiService: UserApiService,
     private router: Router
   ) {}
+
 
   ngOnInit(): void {
     this.loadPosts();
@@ -55,11 +60,7 @@ export class ForumComponent implements OnInit {
 
   addToFavorites(postId: number): void {
     const userId = Number(localStorage.getItem('user_id'));
-    const newFavorite: ForumFavorite = {
-      id: 0,
-      userId,
-      forumPostId: postId
-    };
+    const newFavorite = { id: 0, userId, forumPostId: postId };
     this.favoriteService.create(newFavorite).subscribe(() => {
       this.loadFavorites();
     });
@@ -69,15 +70,14 @@ export class ForumComponent implements OnInit {
     return this.favoriteIds.includes(postId);
   }
 
+  goToFavorites(): void {
+    this.router.navigate(['/foro/favoritos']);
+  }
+
   submitPost(): void {
     const userId = Number(localStorage.getItem('user_id'));
     if (this.newPost.title && this.newPost.content) {
-      const newPost: ForumPost = {
-        id: 0,
-        userId,
-        title: this.newPost.title,
-        content: this.newPost.content
-      };
+      const newPost = { id: 0, userId, title: this.newPost.title, content: this.newPost.content };
       this.postService.create(newPost).subscribe(() => {
         this.newPost = { title: '', content: '' };
         this.loadPosts();
@@ -85,7 +85,40 @@ export class ForumComponent implements OnInit {
     }
   }
 
-  goToFavorites() {
-    this.router.navigate(['/foro/favoritos']);
+  sendReply(postId: number): void {
+    const userId = this.userApiService.getUserId();
+    const replyContent = this.newReplyContent[postId];
+
+    if (replyContent) {
+      const reply = { id: 0, userId, forumPostId: postId, content: replyContent };
+      this.forumReplyApiService.create(reply).subscribe({
+        next: () => {
+          alert('Respuesta enviada correctamente.');
+          this.newReplyContent[postId] = '';
+          this.loadReplies(postId);
+        },
+        error: () => {
+          alert('Error al enviar la respuesta.');
+        }
+      });
+    }
+  }
+
+  toggleReplies(postId: number): void {
+    this.showReplies[postId] = !this.showReplies[postId];
+    if (this.showReplies[postId] && !this.replies[postId]) {
+      this.loadReplies(postId);
+    }
+  }
+
+  loadReplies(postId: number): void {
+    this.forumReplyApiService.getRepliesByForumPostId(postId).subscribe({
+      next: replies => {
+        this.replies[postId] = replies;
+      },
+      error: () => {
+        console.error('Error al cargar las respuestas.');
+      }
+    });
   }
 }

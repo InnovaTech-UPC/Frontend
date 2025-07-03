@@ -58,3 +58,17 @@ p.error-message {
   color: #d9534f;
   font-weight: bold;
 }
+
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-row button {
+  flex-shrink: 0;
+}
+
+.header-row h2 {
+  margin: 0;
+}

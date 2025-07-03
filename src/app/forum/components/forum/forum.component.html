@@ -18,6 +18,22 @@
     <p>{{ post.content }}</p>
     <button *ngIf="!isFavorite(post.id)" (click)="addToFavorites(post.id)">Agregar a favoritos</button>
     <span *ngIf="isFavorite(post.id)">⭐ En favoritos</span>
+    <button mat-raised-button color="accent" (click)="toggleReplies(post.id)">
+      {{ showReplies[post.id] ? 'Ocultar respuestas' : 'Ver respuestas' }}
+    </button>
+
+    <div class="reply-container" [class.visible]="showReplies[post.id]">
+      <div *ngIf="replies[post.id]?.length === 0" class="no-replies-message">
+        <p>No hay ningún mensaje.</p>
+      </div>
+      <div *ngFor="let reply of replies[post.id]" class="reply">
+        <p><strong>{{ reply.userId }}</strong>: {{ reply.content }}</p>
+      </div>
+      <div class="reply-input" *ngIf="showReplies[post.id]">
+        <input type="text" [(ngModel)]="newReplyContent[post.id]" placeholder="Escribe tu respuesta..." />
+        <button mat-raised-button color="primary" (click)="sendReply(post.id)">Send</button>
+      </div>
+    </div>
   </div>
 
 </div>

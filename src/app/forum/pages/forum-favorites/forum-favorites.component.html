@@ -1,5 +1,10 @@
 <div class="favorite-posts">
-  <h2 class="mat-headline">Mis hilos favoritos</h2>
+  <div class="header-row">
+    <button mat-icon-button (click)="goBack()" aria-label="Volver">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2 class="mat-headline">Mis hilos favoritos</h2>
+  </div>
 
   <div *ngIf="favoritePosts.length > 0; else noFavorites">
     <mat-card class="forum-post" *ngFor="let post of favoritePosts">

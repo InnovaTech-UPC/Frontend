@@ -149,6 +149,27 @@
   font-weight: bold;
 }
 
+.reply-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.reply-container.visible {
+  max-height: 500px;
+}
+
+.reply {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.no-replies-message {
+  padding: 10px;
+  color: #888;
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
   .forum-container {
     flex-direction: column;
@@ -175,3 +196,4 @@
     font-size: 12px;
   }
 }
+

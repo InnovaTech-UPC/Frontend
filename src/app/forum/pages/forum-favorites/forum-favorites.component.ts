@@ -7,13 +7,14 @@ import { ForumPost } from '../../models/forum_post.model';
 import { UserApiService } from '../../../profile/services/user-api.service';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-forum-favorites',
   templateUrl: './forum-favorites.component.html',
   standalone: true,
   styleUrls: ['./forum-favorites.component.css'],
-  imports: [CommonModule, MatButtonModule, MatCardModule]
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatIconModule]
 })
 export class ForumFavoritesComponent implements OnInit {
   favoritePosts: ForumPost[] = [];
@@ -28,6 +29,10 @@ export class ForumFavoritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadFavorites();
+  }
+
+  goBack() {
+    window.history.back();
   }
 
   loadFavorites(): void {
