@@ -1,53 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForumFavoriteApiService } from '../../services/forum-favorite-api.service';
+import { ForumPostApiService } from '../../services/forum-post-api.service';
 import { ForumFavorite } from '../../models/forum_favorite.model';
-import {UserApiService} from "../../../profile/services/user-api.service";
+import { ForumPost } from '../../models/forum_post.model';
+import { UserApiService } from '../../../profile/services/user-api.service';
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-forum-favorites',
   templateUrl: './forum-favorites.component.html',
   standalone: true,
   styleUrls: ['./forum-favorites.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule, MatButtonModule, MatCardModule]
 })
 export class ForumFavoritesComponent implements OnInit {
-  favorites: ForumFavorite[] = [];
-  isFavorite: boolean = false;
+  favoritePosts: ForumPost[] = [];
+  private favorites: ForumFavorite[] = [];
   errorMessage: string = '';
 
-  constructor(private forumFavoriteApiService: ForumFavoriteApiService,
-              private userApiService: UserApiService
+  constructor(
+    private forumFavoriteApiService: ForumFavoriteApiService,
+    private forumPostApiService: ForumPostApiService,
+    private userApiService: UserApiService
   ) {}
 
   ngOnInit(): void {
     this.loadFavorites();
-    this.checkFavorite(1);
   }
 
   loadFavorites(): void {
-    var userId = this.userApiService.getUserId();
+    const userId = this.userApiService.getUserId();
+
     this.forumFavoriteApiService.getFavoriteByUserId(userId).subscribe({
-      next: (data) => {
-        this.favorites = data;
+      next: (favorites) => {
+        this.favorites = favorites;
+        const postIds = favorites.map(fav => fav.forumPostId);
+
+        this.forumPostApiService.getAll().subscribe({
+          next: (allPosts) => {
+            this.favoritePosts = allPosts.filter(post => postIds.includes(post.id));
+          },
+          error: () => {
+            this.errorMessage = 'Error al cargar los posts.';
+          }
+        });
       },
-      error: (error) => {
+      error: () => {
         this.errorMessage = 'Error al cargar favoritos.';
-        console.error(error);
       }
     });
   }
 
-  checkFavorite(forumPostId: number): void {
-    const userId = Number(localStorage.getItem('user_id'));
-    this.forumFavoriteApiService.getCheck(userId, forumPostId).subscribe({
-      next: (result) => {
-        this.isFavorite = result;
-      },
-      error: (error) => {
-        this.errorMessage = 'Error al verificar favorito.';
-        console.error(error);
-      }
+  removeFavorite(postId: number): void {
+    const userId = this.userApiService.getUserId();
+
+    this.forumFavoriteApiService.deleteByUserAndPost(userId, postId).subscribe(() => {
+      this.loadFavorites();
     });
   }
+
 }

@@ -32,6 +32,15 @@ export class ForumFavoriteApiService extends BaseService<ForumFavorite> {
     ).pipe(catchError(this.handleError));
   }
 
+  deleteByUserAndPost(userId: number, forumPostId: number): Observable<string> {
+    this.setToken();
+    return this.http.delete(this.buildPath() + "?userId=" + userId + "&forumPostId=" + forumPostId, {
+      ...this.httpOptions,
+      responseType: 'text'
+    }).pipe(catchError(this.handleError));
+  }
+
+
 
 
 }
