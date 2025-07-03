@@ -9,6 +9,7 @@ import { ForumReply } from '../../models/forum_reply.model';
 import { MatButton } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { UserApiService } from '../../../profile/services/user-api.service';
+import { ProfileApiService } from '../../../profile/services/profile-api.service';
 
 @Component({
   selector: 'app-forum',
@@ -23,6 +24,7 @@ export class ForumComponent implements OnInit {
   replies: { [key: number]: ForumReply[] } = {};
   showReplies: { [key: number]: boolean } = {};
   newReplyContent: { [key: number]: string } = {};
+  userNamesCache: { [key: number]: string } = {};
 
   newPost: Partial<ForumPost> = {
     title: '',
@@ -34,9 +36,9 @@ export class ForumComponent implements OnInit {
     private favoriteService: ForumFavoriteApiService,
     private forumReplyApiService: ForumReplyApiService,
     private userApiService: UserApiService,
+    private profileApiService: ProfileApiService,
     private router: Router
   ) {}
-
 
   ngOnInit(): void {
     this.loadPosts();
@@ -120,5 +122,22 @@ export class ForumComponent implements OnInit {
         console.error('Error al cargar las respuestas.');
       }
     });
+  }
+
+  getUserName(userId: number): string {
+    if (this.userNamesCache[userId]) {
+      return this.userNamesCache[userId];
+    }
+
+    this.profileApiService.getProfileByUserId(userId).subscribe({
+      next: (profile) => {
+        this.userNamesCache[userId] = profile.firstName;
+      },
+      error: () => {
+        this.userNamesCache[userId] = 'Unknown';
+      }
+    });
+
+    return 'Loading...';
   }
 }

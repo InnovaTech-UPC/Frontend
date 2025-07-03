@@ -11,7 +11,6 @@
   margin: 10px;
 }
 
-
 .favorites-button {
   background-color: #092C4C;
   color: white;
@@ -149,6 +148,52 @@
   font-weight: bold;
 }
 
+.forum-post button,
+.forum-post span {
+  margin-right: 10px;
+}
+
+.forum-post button {
+  width: 150px;
+  height: 40px;
+  display: inline-block;
+}
+
+.forum-post span {
+  line-height: 40px;
+}
+
+.forum-post button {
+  width: 150px;
+  height: 40px;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forum-post button:hover {
+  opacity: 0.9;
+}
+
+.forum-post button[mat-raised-button] {
+  background-color: #DC763C;
+  color: white;
+}
+
+.forum-post button[mat-raised-button]:hover {
+  background-color: #B55A2A;
+}
+
+.forum-post button:not([mat-raised-button]) {
+  background-color: #092C4C;
+  color: white;
+}
+
+.forum-post button:not([mat-raised-button]):hover {
+  background-color: #071F36;
+}
+
 .reply-container {
   max-height: 0;
   overflow: hidden;
@@ -162,6 +207,36 @@
 .reply {
   padding: 10px;
   border-bottom: 1px solid #ccc;
+}
+
+.reply-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reply-input input {
+  flex: 1;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.reply-input button {
+  width: 150px;
+  height: 40px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reply-input button:hover {
+  background-color: #0056b3;
 }
 
 .no-replies-message {
@@ -187,7 +262,6 @@
 }
 
 @media (max-width: 580px) {
-
   .forum-post h3 {
     font-size: 16px;
   }
@@ -196,4 +270,3 @@
     font-size: 12px;
   }
 }
-
