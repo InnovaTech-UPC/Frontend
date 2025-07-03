@@ -14,12 +14,14 @@ export class ForumFavoriteApiService extends BaseService<ForumFavorite> {
     this.extraUrl = environment.forumFavoriteURL;
   }
 
-  get(params?: { forumPostId?: number }): Observable<ForumFavorite[]> {
+  getFavoriteByUserId(userId: number): Observable<ForumFavorite[]> {
     this.setToken();
-    return this.http.get<ForumFavorite[]>(
-      `${this.buildPath()}${params?.forumPostId ? `?forumPostId=${params.forumPostId}` : ''}`,
-      this.httpOptions
-    ).pipe(catchError(this.handleError));
+    return this.http.get<ForumFavorite[]>(this.buildPath() + "?userId=" + userId, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
+  getFavoriteByForumPostId(postId: number): Observable<ForumFavorite[]> {
+    this.setToken();
+    return this.http.get<ForumFavorite[]>(this.buildPath() + "?forumPostId=" + postId, this.httpOptions).pipe(catchError(this.handleError));
   }
 
   getCheck(userId: number, forumPostId: number): Observable<boolean> {

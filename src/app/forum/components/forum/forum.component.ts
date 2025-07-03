@@ -5,12 +5,15 @@ import { ForumPost } from '../../models/forum_post.model';
 import { ForumPostApiService } from '../../services/forum-post-api.service';
 import { ForumFavoriteApiService } from '../../services/forum-favorite-api.service';
 import {ForumFavorite} from "../../models/forum_favorite.model";
+import {MatButton} from "@angular/material/button";
+import {Router} from "@angular/router";
+import {UserApiService} from "../../../profile/services/user-api.service";
 
 
 @Component({
   selector: 'app-forum',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatButton],
   templateUrl: './forum.component.html',
   styleUrls: ['./forum.component.css']
 })
@@ -25,7 +28,9 @@ export class ForumComponent implements OnInit {
 
   constructor(
     private postService: ForumPostApiService,
-    private favoriteService: ForumFavoriteApiService
+    private favoriteService: ForumFavoriteApiService,
+    private userApiService: UserApiService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,8 +45,8 @@ export class ForumComponent implements OnInit {
   }
 
   loadFavorites(): void {
-    const userId = Number(localStorage.getItem('user_id'));
-    this.favoriteService.getAll().subscribe(favs => {
+    const userId = this.userApiService.getUserId();
+    this.favoriteService.getFavoriteByUserId(userId).subscribe(favs => {
       this.favoriteIds = favs
         .filter(f => f.userId === userId)
         .map(f => f.forumPostId);
@@ -78,5 +83,9 @@ export class ForumComponent implements OnInit {
         this.loadPosts();
       });
     }
+  }
+
+  goToFavorites() {
+    this.router.navigate(['/foro/favoritos']);
   }
 }

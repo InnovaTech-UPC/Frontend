@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForumFavoriteApiService } from '../../services/forum-favorite-api.service';
 import { ForumFavorite } from '../../models/forum_favorite.model';
+import {UserApiService} from "../../../profile/services/user-api.service";
 
 @Component({
   selector: 'app-forum-favorites',
@@ -15,7 +16,9 @@ export class ForumFavoritesComponent implements OnInit {
   isFavorite: boolean = false;
   errorMessage: string = '';
 
-  constructor(private favoriteService: ForumFavoriteApiService) {}
+  constructor(private forumFavoriteApiService: ForumFavoriteApiService,
+              private userApiService: UserApiService
+  ) {}
 
   ngOnInit(): void {
     this.loadFavorites();
@@ -23,7 +26,8 @@ export class ForumFavoritesComponent implements OnInit {
   }
 
   loadFavorites(): void {
-    this.favoriteService.get().subscribe({
+    var userId = this.userApiService.getUserId();
+    this.forumFavoriteApiService.getFavoriteByUserId(userId).subscribe({
       next: (data) => {
         this.favorites = data;
       },
@@ -36,7 +40,7 @@ export class ForumFavoritesComponent implements OnInit {
 
   checkFavorite(forumPostId: number): void {
     const userId = Number(localStorage.getItem('user_id'));
-    this.favoriteService.getCheck(userId, forumPostId).subscribe({
+    this.forumFavoriteApiService.getCheck(userId, forumPostId).subscribe({
       next: (result) => {
         this.isFavorite = result;
       },

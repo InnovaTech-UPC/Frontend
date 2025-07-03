@@ -1,5 +1,9 @@
-<div class="forum-posts">
-  <h2>Publicar nuevo mensaje</h2>
+<div class="container">
+
+  <h1 class="title-page"><strong>Foro de discusión</strong></h1>
+  <button mat-flat-button (click)="goToFavorites()" class="favorites-button">Ver Favoritos</button>
+
+  <h2>Empezar nuevo hilo</h2>
   <div class="new-post-form">
     <input type="text" [(ngModel)]="newPost.title" placeholder="Título" />
     <textarea [(ngModel)]="newPost.content" placeholder="Contenido"></textarea>
@@ -8,7 +12,7 @@
 
   <hr>
 
-  <h2>Mensajes del foro</h2>
+  <h2>Ver hilos</h2>
   <div class="forum-post" *ngFor="let post of posts">
     <h3>{{ post.title }}</h3>
     <p>{{ post.content }}</p>
