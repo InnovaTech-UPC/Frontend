@@ -49,6 +49,14 @@ mat-form-field{
   --mdc-outlined-text-field-focus-label-text-color: #7ec306;
 }
 
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
+
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+}
+
 .send-button {
   width: 80%;
   margin-top: 20px;

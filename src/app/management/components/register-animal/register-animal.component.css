@@ -17,6 +17,20 @@ h2 {
   justify-self: start;
 }
 
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+  --mdc-outlined-text-field-focus-outline-color: #7ec306;
+  --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper mat-select {
+  color: var(--text-automatic-color) !important;
+  background-color: inherit;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
 
 main {
   margin-top: 80px;

@@ -11,32 +11,32 @@
 
     <div class="form">
       <form (submit)="onSubmit()" #animalForm = "ngForm" aria-label="Formulario de información de un animal">
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>ID</mat-label>
           <input matInput placeholder="ID de animal" name="animalID" [(ngModel)]="animal.id" disabled>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Nombre</mat-label>
           <input matInput placeholder="Nombre" name="animalName" [disabled]="!isEditMode" [(ngModel)]="animal.name" required>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Edad</mat-label>
           <input matInput type="number" placeholder="Edad" name="animalAge" [disabled]="!isEditMode" [(ngModel)]="animal.age" required>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Especie</mat-label>
           <input matInput placeholder="Especie" name="animalSpecies" [disabled]="!isEditMode" [(ngModel)]="animal.species" required>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Raza</mat-label>
           <input matInput placeholder="Raza" name="animalBreed" [disabled]="!isEditMode" [(ngModel)]="animal.breed" required>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Género</mat-label>
           <mat-select name="animalGender" aria-label="seleccionador de genero" [disabled]="!isEditMode" [(ngModel)]="gender" required>
             <mat-option value="true">Macho</mat-option>
@@ -44,12 +44,12 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Peso (kg)</mat-label>
           <input matInput type="number" placeholder="Peso" name="animalWeight" [disabled]="!isEditMode" [(ngModel)]="animal.weight" required>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Salud</mat-label>
           <mat-select name="animalHealth" [disabled]="!isEditMode" [(ngModel)]="animal.health" required>
             <mat-option value="HEALTHY">Saludable</mat-option>
@@ -59,7 +59,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>ID de recinto</mat-label>
           <input matInput type="number" placeholder="ID de recinto" name="animalEnclosureId" [(ngModel)]="animal.enclosureId" disabled>
         </mat-form-field>

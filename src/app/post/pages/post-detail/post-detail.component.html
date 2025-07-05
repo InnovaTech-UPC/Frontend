@@ -13,7 +13,7 @@
       <img *ngIf="image" [src]="image" alt="Imagen de la publicación" class="preview-image" height="360" width="360">
       <img *ngIf="!image" ngSrc="assets/images/placeholder.jpg" alt="Image Placeholder" class="preview-image" height="360" width="360">
       <input type="file" accept="image/*" (change)="uploadImage($event)" id="upload-input" hidden>
-      <button mat-stroked-button color="primary" (click)="document.getElementById('upload-input')?.click()">
+      <button mat-flat-button color="primary" (click)="document.getElementById('upload-input')?.click()">
         Subir imagen
       </button>
     </div>

@@ -20,10 +20,17 @@ main {
 }
 
 .container {
-  background-color: #FBFBFB;
-  color: #000000;
+  color: var(--text-automatic-color);
   margin: 100px 0;
   width: 50%;
+}
+
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
 }
 
 .container h2 {

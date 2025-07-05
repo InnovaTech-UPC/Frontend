@@ -1,16 +1,18 @@
-<h2 mat-dialog-title>
-  <button mat-icon-button class="close-button" (click)="onClose()">
-    <mat-icon>close</mat-icon>
-  </button>
-</h2>
-<mat-dialog-content>
-  <h3>¿Estás seguro que deseas cancelar tu cita?</h3>
-  <mat-form-field appearance="outline" class="reason-field">
-    <mat-label>Motivo</mat-label>
-    <textarea style="color: var(--text-automatic-color);" matInput [(ngModel)]="reason" rows="3" placeholder="Por favor, indica el motivo de la cancelación" required></textarea>
-    <mat-error *ngIf="!reason">El motivo es obligatorio.</mat-error>
-  </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-raised-button class="cancel-button" color="warn" (click)="onConfirm()" [disabled]="!reason">Cancelar cita</button>
-</mat-dialog-actions>
+<div class="container">
+  <h2 mat-dialog-title>
+    <button mat-icon-button class="close-button" (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </h2>
+  <mat-dialog-content>
+    <h3>¿Estás seguro que deseas cancelar tu cita?</h3>
+    <mat-form-field appearance="outline" class="reason-field">
+      <mat-label>Motivo</mat-label>
+      <textarea style="color: var(--text-automatic-color);" matInput [(ngModel)]="reason" rows="3" placeholder="Por favor, indica el motivo de la cancelación" required></textarea>
+      <mat-error *ngIf="!reason">El motivo es obligatorio.</mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button class="cancel-button" color="warn" (click)="onConfirm()" [disabled]="!reason">Cancelar cita</button>
+  </mat-dialog-actions>
+</div>

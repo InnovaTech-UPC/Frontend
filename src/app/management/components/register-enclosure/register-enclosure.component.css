@@ -8,6 +8,16 @@ h2 {
   justify-self: start;
 }
 
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+  --mdc-outlined-text-field-focus-outline-color: #7ec306;
+  --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
+
 .header-row {
   display: grid;
   grid-template-columns: 1fr auto 1fr;

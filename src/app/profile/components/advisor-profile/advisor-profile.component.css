@@ -31,6 +31,15 @@ mat-form-field {
   --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
 }
 
+mat-form-field mat-label, mat-form-field input {
+  color: var(--text-automatic-color) !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper input {
+  color: var(--text-automatic-color) !important;
+  background-color: inherit;
+}
+
 .loading-spinner {
   display: flex;
   justify-content: center;

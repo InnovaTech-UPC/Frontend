@@ -27,6 +27,14 @@ main {
   border: 5px solid #A0AFC8;
 }
 
+a {
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--success-color-second);
+}
+
 .advisor-info, .appointment-info {
   flex: 1;
   flex-direction: column;
