@@ -9,5 +9,32 @@ button {
   z-index: 0;
 }
 
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+
+html.dark-mode, body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+main {
+  background-color: inherit;
+  color: inherit;
+}
+
+.container {
+  background-color: inherit;
+  color: inherit;
+}
+
+button {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
