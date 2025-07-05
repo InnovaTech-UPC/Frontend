@@ -3,22 +3,22 @@
   <h2>del recinto: {{enclosure.name}}</h2>
   <div class="form">
     <form (submit)="onSubmit()" #enclosureForm = "ngForm" aria-label="formulario de modificación de datos de recinto">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>ID</mat-label>
         <input matInput placeholder="Número de jaula" name="enclosureID" [(ngModel)]="enclosure.id" disabled>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
         <input matInput placeholder="Nombre" name="enclosureName" [(ngModel)]="enclosure.name" required>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Capacidad</mat-label>
         <input matInput type="number" placeholder="Capacidad" name="enclosureCapacity" [(ngModel)]="enclosure.capacity" required>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Tipo</mat-label>
         <input matInput placeholder="Tipo" name="enclosureType" [(ngModel)]="enclosure.type">
       </mat-form-field>
@@ -27,7 +27,7 @@
         <button class="back-button" mat-flat-button style="background-color: #F84343; color: white;" type="button"  aria-label="descartar cambios"  mat-button (click)="goBack()">
           Descartar
         </button>
-        <button class="register-button" mat-flat-button aria-label="guardar cambios" type="submit" style="background-color: #092C4C; color: white;">
+        <button class="register-button" mat-flat-button aria-label="guardar cambios" type="submit" style="background-color: var(--text-color); color: white;">
           Guardar
         </button>
       </div>

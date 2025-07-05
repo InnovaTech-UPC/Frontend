@@ -8,7 +8,7 @@
     <h2>Registrar nuevo recinto</h2>
   </div>
   <div class="group-inputs">
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Nombre</mat-label>
       <input matInput placeholder="Jaula 6" [(ngModel)]="enclosure.name" required>
       <mat-error *ngIf="!enclosure.name">
@@ -16,7 +16,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Capacidad</mat-label>
       <input type="number" matInput placeholder="5" min="1" [(ngModel)]="enclosure.capacity" required>
       <mat-error *ngIf="enclosure.capacity <= 0">
@@ -24,7 +24,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Tipo</mat-label>
       <input matInput placeholder="Tipo" [(ngModel)]="enclosure.type" required>
       <mat-error *ngIf="!enclosure.type">

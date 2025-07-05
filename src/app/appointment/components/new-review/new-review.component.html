@@ -25,7 +25,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Comentario</mat-label>
-          <textarea matInput class="input" placeholder="Comentario" name="reviewComment" rows="3" [(ngModel)]="comment" ></textarea>
+          <textarea style="color: var(--text-automatic-color);" matInput class="input" placeholder="Comentario" name="reviewComment" rows="3" [(ngModel)]="comment" ></textarea>
         </mat-form-field>
 
         <button mat-flat-button class="send-button" color="primary" aria-label="guardar cambios" type="submit" [disabled]="rating === 0">Enviar Reseña</button>

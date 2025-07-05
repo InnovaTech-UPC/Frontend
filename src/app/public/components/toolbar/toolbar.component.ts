@@ -76,4 +76,10 @@ export class ToolbarComponent {
     this.router.navigateByUrl('/login');
   }
 
+  toggleDarkMode(): void {
+    const body = document.body;
+    const html = document.documentElement;
+    body.classList.toggle('dark-mode');
+    html.classList.toggle('dark-mode');
+  }
 }

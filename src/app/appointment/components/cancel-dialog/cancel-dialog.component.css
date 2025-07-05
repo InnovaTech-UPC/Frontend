@@ -3,6 +3,25 @@
   top: 8px;
   left: 8px;
 }
+
+h3 {
+  color: var(--text-color);
+}
+
+.container {
+  background-color: var(--text-primary-color);
+}
+
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+  --mdc-outlined-text-field-focus-outline-color: #7ec306;
+  --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
+
 .reason-field {
   width: 100%;
 }
