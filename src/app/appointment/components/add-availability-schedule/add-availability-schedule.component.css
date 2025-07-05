@@ -20,17 +20,24 @@ main {
 }
 
 .container {
-  background-color: #FBFBFB;
-  color: #000000;
+  color: var(--text-automatic-color);
   margin: 100px 0;
   width: 50%;
+}
+
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
 }
 
 .container h2 {
   text-align: center;
   font-weight:bold;
   font-size: 35px;
-  color: #092C4C;
+  color: var(--text-color);
 }
 
 form {
@@ -48,7 +55,7 @@ input {
 }
 
 .date-form button:enabled {
-  background-color: #092C4C;
+  background-color: var(--text-color);
   border: none;
   color: white;
 }

@@ -59,7 +59,7 @@ export class AdvisorPostsComponent implements OnInit {
   }
 
   deletePost(id: number) {
-    this.confirmMessage(`¿Estas seguro de querer eliminar la información del animal?`).subscribe(result => {
+    this.confirmMessage(`¿Estas seguro de querer eliminar esta publicación?`).subscribe(result => {
       if(result) {
         this.postApiService.delete(id).subscribe({
           next: () => {
