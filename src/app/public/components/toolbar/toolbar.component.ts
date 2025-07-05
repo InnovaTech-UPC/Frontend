@@ -36,9 +36,9 @@ export class ToolbarComponent {
   getSections(): string[] {
     this.isFarmer = this.userApiService.getIsFarmer();
     if (this.isFarmer) {
-      return ["Citas", "Asesores", "Publicaciones", "Mi Granja", "Notificaciones", "Perfil"];
+      return ["Citas", "Asesores", "Publicaciones", "Mi Granja", "Foro", "Notificaciones", "Perfil",];
     } else {
-      return ["Citas", "Mis publicaciones", "Horarios", "Notificaciones", "Perfil"];
+      return ["Citas", "Mis publicaciones", "Horarios", "Foro", "Notificaciones", "Perfil"];
     }
   }
 
@@ -60,6 +60,8 @@ export class ToolbarComponent {
         return "asesor/horarios";
       case "Perfil":
         return this.isFarmer ? "granjero/perfil" : "asesor/perfil";
+      case "Foro":
+        return "foro";
       default:
         return "/";
     }

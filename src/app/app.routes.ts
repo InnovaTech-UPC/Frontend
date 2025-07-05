@@ -28,6 +28,9 @@ import {AnimalInformationComponent} from "./management/pages/animal-information/
 import {EnclosureEditorComponent} from "./management/pages/enclosure-editor/enclosure-editor.component";
 import {RegisterEnclosureComponent} from "./management/components/register-enclosure/register-enclosure.component";
 import {RegisterAnimalComponent} from "./management/components/register-animal/register-animal.component";
+import {ForumPageComponent} from "./forum/pages/forum-page/forum-page.component";
+import {ForumFavoritesComponent} from "./forum/pages/forum-favorites/forum-favorites.component";
+
 import {UserGuard} from "./profile/services/user.guard";
 
 export const routes: Routes = [
@@ -67,5 +70,8 @@ export const routes: Routes = [
   {path: 'asesor/notificaciones', component: NotificationsViewComponent, canActivate: [UserGuard] },
   {path: 'asesor/horarios', component: ListAvailabilityScheduleComponent, canActivate: [UserGuard] },
   {path: 'asesor/horarios/agregar', component: AddAvailabilityScheduleComponent, canActivate: [UserGuard] },
-  {path: 'asesor/perfil', component: ProfilePageComponent, canActivate: [UserGuard] }
+  {path: 'asesor/perfil', component: ProfilePageComponent, canActivate: [UserGuard] },
+  {path: 'foro', component: ForumPageComponent, canActivate: [UserGuard] },
+  {path: 'foro/favoritos', component: ForumFavoritesComponent, canActivate: [UserGuard] }
+
 ];
