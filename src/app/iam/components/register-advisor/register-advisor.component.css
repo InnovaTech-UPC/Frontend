@@ -6,8 +6,12 @@
 }
 
 .container mat-card {
-  width: 50%;
+  width: 100%;
   padding: 20px;
+}
+
+mat-card{
+  background-color: var(--text-primary-color);
 }
 
 .register-user {
@@ -18,17 +22,22 @@
 
 .register-user mat-form-field {
   width: 100%;
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
   --mdc-outlined-text-field-focus-outline-color: #7ec306;
   --mdc-outlined-text-field-focus-label-text-color: #7ec306;
 }
 
-button{
+.register-user mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
+
+button {
   width: 60%;
   height: 40px;
   margin: 12px;
 }
 
-button:enabled{
+button:enabled {
   color: white;
 }
 
@@ -38,13 +47,12 @@ button:enabled{
 }
 
 .title {
-  margin: 5px;
-  text-align: center;
-  color: #27AE60;
+  color: var(--text-color);
+  font-size: 28px;
   font-weight: bold;
-  font-size: x-large;
+  text-align: center;
+  margin: 10px;
 }
-
 
 .register-user input {
   width: 100%;
@@ -71,8 +79,10 @@ button:enabled{
 
 .image-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .profile-image {
@@ -80,19 +90,40 @@ button:enabled{
   height: auto;
 }
 
+::ng-deep .mat-mdc-text-field-wrapper input {
+  color: var(--text-automatic-color) !important;
+  background-color: inherit;
+}
+
+span {
+  color: var(--text-automatic-color);
+}
+
+a {
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--success-color);
+}
+
 .submit-button:enabled {
-  background-color: #092C4C;
-  color: #FFFFFF
+  background-color: var(--text-color);
+  color: #FFFFFF;
 }
 
-@media (max-width: 850px) {
-  .container mat-card {
-    width: 80%;
-  }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-@media (max-width: 375px) {
-  .container mat-card {
-    width: 100%;
+.form-field {
+  max-width: 350px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 }

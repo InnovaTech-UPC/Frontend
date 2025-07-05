@@ -36,4 +36,8 @@ export class AuthenticationApiService extends BaseService<User> {
       }))
   }
 
+  isSignedIn() {
+    return localStorage.getItem('isLogged') === 'true';
+  }
+
 }

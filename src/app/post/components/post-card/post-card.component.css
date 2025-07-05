@@ -6,6 +6,10 @@
   gap: 5px;
 }
 
+mat-card {
+  background-color: var(--text-primary-color);
+}
+
 .post-image{
   object-fit: cover;
   height: 200px;
@@ -14,13 +18,13 @@
 .post-title {
   font-size: 18px;
   font-weight: bold;
-  color: #092C4C;
+  color: var(--text-color);
   margin-bottom: 8px;
 }
 
 .post-description {
   font-size: 14px;
-  color: #555;
+  color: var(--text-automatic-color);
   line-height: 1.4;
 }
 

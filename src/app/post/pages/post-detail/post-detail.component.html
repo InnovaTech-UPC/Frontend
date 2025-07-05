@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header-row">
     <div class="back-button">
-      <button mat-icon-button style="color: #092C4C" class="button_only" (click)="goBack()">
+      <button mat-icon-button style="color: var(--text-color)" class="button_only" (click)="goBack()">
         <mat-icon class="icon">arrow_back</mat-icon>
       </button>
     </div>
@@ -13,7 +13,7 @@
       <img *ngIf="image" [src]="image" alt="Imagen de la publicación" class="preview-image" height="360" width="360">
       <img *ngIf="!image" ngSrc="assets/images/placeholder.jpg" alt="Image Placeholder" class="preview-image" height="360" width="360">
       <input type="file" accept="image/*" (change)="uploadImage($event)" id="upload-input" hidden>
-      <button mat-stroked-button color="primary" (click)="document.getElementById('upload-input')?.click()">
+      <button mat-flat-button color="primary" (click)="document.getElementById('upload-input')?.click()">
         Subir imagen
       </button>
     </div>
@@ -27,7 +27,7 @@
 
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Descripción</mat-label>
-          <textarea matInput formControlName="description" placeholder="Ingresa la descripción"></textarea>
+          <textarea style="color: var(--text-automatic-color);" matInput formControlName="description" placeholder="Ingresa la descripción"></textarea>
         </mat-form-field>
 
         <button mat-flat-button color="primary" type="submit" [disabled]="isImageUploading">Guardar</button>

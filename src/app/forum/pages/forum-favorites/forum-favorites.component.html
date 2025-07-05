@@ -1,0 +1,26 @@
+<div class="favorite-posts">
+  <div class="header-row">
+    <button mat-icon-button (click)="goBack()" aria-label="Volver">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2 class="mat-headline">Mis hilos favoritos</h2>
+  </div>
+
+  <div *ngIf="favoritePosts.length > 0; else noFavorites">
+    <mat-card class="forum-post" *ngFor="let post of favoritePosts">
+      <mat-card-title>{{ post.title }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ post.content }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="removeFavorite(post.id)">Eliminar de favoritos</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <ng-template #noFavorites>
+    <p class="mat-body-1" *ngIf="!errorMessage">No hay favoritos disponibles.</p>
+  </ng-template>
+
+  <p class="mat-body-1" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

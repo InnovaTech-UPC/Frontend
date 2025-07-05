@@ -7,7 +7,7 @@ main {
 }
 
 h1 {
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   font-weight: bold;
 }
