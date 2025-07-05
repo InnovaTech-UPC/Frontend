@@ -30,7 +30,7 @@ main {
   text-align: center;
   font-weight:bold;
   font-size: 35px;
-  color: #092C4C;
+  color: var(--text-color);
 }
 
 form {
@@ -48,7 +48,7 @@ input {
 }
 
 .date-form button:enabled {
-  background-color: #092C4C;
+  background-color: var(--text-color);
   border: none;
   color: white;
 }

@@ -3,7 +3,7 @@
   <div class="form-container">
     <div class="return">
       <img src="https://firebasestorage.googleapis.com/v0/b/agroconnect-demo.appspot.com/o/images%2Fanimal.png?alt=media&token=53864c26-7502-4b88-80e7-e282e60d87b4" alt="animal {{animal.id}}">
-      <button mat-raised-button class="back-button" style="background-color: #092C4C; color: white;" aria-label="Boton de retroceso" (click)="goBack()">
+      <button mat-raised-button class="back-button" style="background-color: var(--text-color); color: white;" aria-label="Boton de retroceso" (click)="goBack()">
         <mat-icon aria-label="flecha de retroceso">arrow_back</mat-icon>
         Volver
       </button>
@@ -70,7 +70,7 @@
               <button mat-flat-button style="padding: 20px; background-color: #F84343; color: white;" type="button" aria-label="Descartar cambios" (click)="onCancel()">
                 Descartar
               </button>
-              <button mat-flat-button style="background-color: #092C4C; color: white;" type="submit" aria-label="Guardar">
+              <button mat-flat-button style="background-color: var(--text-color); color: white;" type="submit" aria-label="Guardar">
                 Guardar
               </button>
             </div>

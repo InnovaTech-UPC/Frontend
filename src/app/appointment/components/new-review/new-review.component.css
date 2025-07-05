@@ -3,7 +3,7 @@ main {
 }
 
 .title-page {
-  color: #092C4C;
+  color: var(--text-color);
   padding-top: 20px;
   font-size: 35px;
   text-align: center;

@@ -44,7 +44,7 @@ table {
 }
 
 .actions button:nth-child(2) {
-  background-color: #092C4C;
+  background-color: var(--text-color);
 }
 
 .actions button:nth-child(3) {
@@ -84,7 +84,7 @@ table {
 
 @media screen and (max-width: 500px) {
   .tabla {
-    border: 0px solid #092C4C;
+    border: 0px solid var(--text-color);
   }
   .tabla table {
     display: block;
