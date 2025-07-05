@@ -7,7 +7,7 @@
 
 .title-page {
   text-align: center;
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   margin-bottom: 30px;
 }
@@ -15,7 +15,7 @@
 .favorites-button {
   display: block;
   margin: 0 auto 30px auto;
-  background-color: #092C4C;
+  background-color: var(--text-color);
   color: white;
   padding: 10px 25px;
   border: none;
@@ -30,7 +30,7 @@
 
 /* ===== NUEVO POST ===== */
 .new-post-form {
-  background-color: #f9f9f9;
+  background-color: var(--text-primary-color);
   padding: 25px;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -60,7 +60,7 @@
   display: inline-block;
   margin-top: 10px;
   padding: 12px 20px;
-  background-color: #DC763C;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: 8px;
@@ -70,12 +70,12 @@
 }
 
 .new-post-form button:hover {
-  background-color: #bd5006;
+  background-color: var(--secondary-color);
 }
 
 /* ===== FORUM POSTS ===== */
 .forum-post {
-  background-color: #ffffff;
+  background-color: var(--text-primary-color);
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #ddd;
@@ -86,12 +86,12 @@
 .forum-post h3 {
   margin-top: 0;
   font-size: 20px;
-  color: #333;
+  color: var(--text-automatic-color);
 }
 
 .forum-post p {
   font-size: 15px;
-  color: #555;
+  color: var(--text-automatic-color);
   margin-bottom: 20px;
 }
 
@@ -116,7 +116,7 @@
 }
 
 .favorite-btn {
-  background-color: #092C4C;
+  background-color: var(--text-color);
   color: white;
   padding: 10px 16px;
   border-radius: 6px;
@@ -127,17 +127,17 @@
 }
 
 .forum-post .post-buttons .favorite-btn {
-  background-color: #092C4C;
+  background-color: var(--text-color);
   color: white;
 }
 
 .forum-post .post-buttons .favorite-btn:hover {
-  background-color: #071F36;
+  background-color: var(--text-color);
 }
 
 /* Ver respuestas */
 .toggle-replies-btn {
-  background-color: #DC763C;
+  background-color: var(--primary-color);
   color: white;
   padding: 10px 16px;
   border-radius: 6px;
@@ -148,12 +148,12 @@
 }
 
 .forum-post .post-buttons .toggle-replies-btn {
-  background-color: #DC763C;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .forum-post .post-buttons .toggle-replies-btn:hover {
-  background-color: #B55A2A;
+  background-color: var(--secondary-color);
 }
 
 /* Texto favorito */
@@ -165,7 +165,7 @@
 
 /* ===== RESPUESTAS ===== */
 .reply-container {
-  background-color: #f3f6f9;
+  background-color: var(--text-primary-color);
   border-left: 4px solid #ff9033;
   padding: 20px;
   border-radius: 8px;
@@ -190,12 +190,12 @@
 .reply p {
   margin: 0;
   font-size: 14px;
-  color: #333;
+  color: var(--text-automatic-color);
 }
 
 .no-replies-message {
   font-style: italic;
-  color: #888;
+  color: var(--text-automatic-color);
   margin-bottom: 15px;
 }
 
@@ -217,7 +217,7 @@
 .reply-input-button {
   flex-shrink: 0;
   padding: 0 16px;
-  background-color: #092C4C;
+  background-color: var(--text-color);
   color: white;
   border: none;
   border-radius: 6px;
@@ -260,7 +260,7 @@
   width: fit-content;
   align-self: flex-start;
   padding: 10px 16px;
-  background-color: #092C4C;
+  background-color: var(--text-color);
   color: white;
   border: none;
   border-radius: 6px;

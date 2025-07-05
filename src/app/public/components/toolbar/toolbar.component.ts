@@ -32,6 +32,7 @@ export class ToolbarComponent {
   }
 
   isFarmer: boolean = this.userApiService.getIsFarmer();
+  isDarkMode: boolean = false;
 
   getSections(): string[] {
     this.isFarmer = this.userApiService.getIsFarmer();
@@ -81,5 +82,6 @@ export class ToolbarComponent {
     const html = document.documentElement;
     body.classList.toggle('dark-mode');
     html.classList.toggle('dark-mode');
+    this.isDarkMode = !this.isDarkMode;
   }
 }

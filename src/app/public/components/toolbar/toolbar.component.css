@@ -26,6 +26,10 @@ span{
   display: inline-block;
 }
 
+mat-icon {
+  color: #FFFFFF;
+}
+
 .menu-icon {
   display: none;
   color: #FFFFFF;
@@ -35,7 +39,7 @@ span{
   color: #FFFFFF;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 940px) {
   .section-button {
     display: none;
   }

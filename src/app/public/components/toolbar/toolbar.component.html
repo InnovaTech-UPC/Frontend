@@ -2,7 +2,8 @@
   <img src="https://firebasestorage.googleapis.com/v0/b/agroconnect-demo.appspot.com/o/images%2Flogo-circular.jpg?alt=media&token=51652ea1-b903-404e-9ca5-08189a1bd07d" alt="Logo">
   <label>AgroTech</label>
   <button mat-icon-button (click)="toggleDarkMode()" aria-label="Alternar modo oscuro">
-    <mat-icon>dark_mode</mat-icon>
+    <mat-icon *ngIf="!isDarkMode">dark_mode</mat-icon>
+    <mat-icon *ngIf="isDarkMode">light_mode</mat-icon>
   </button>
   <span class="spacer"></span>
   <ng-container *ngIf="isLogged()">
