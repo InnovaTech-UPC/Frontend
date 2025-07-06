@@ -134,7 +134,7 @@ export class RegisterFarmerComponent {
       this.router.navigateByUrl('/granjero/citas');
       this.snackBar.open('Bienvenid@ ' + this.registerForm.value.firstName + ' 🤗', 'Cerrar', { duration: 2000 });
     } catch (error) {
-      this.snackBar.open('Error al registrar el granjero😥', 'Cerrar', {duration: 2000});
+      this.snackBar.open('Error al registrar el productor agrícola 😥', 'Cerrar', {duration: 2000});
     }
   }
 

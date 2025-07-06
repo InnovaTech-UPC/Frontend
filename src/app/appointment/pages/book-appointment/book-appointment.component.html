@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header-row">
     <div class="back-button">
-      <button mat-icon-button style="color: #092C4C" (click)="goBack()">
+      <button mat-icon-button style="color: var(--text-color)" (click)="goBack()">
         <mat-icon class="icon">arrow_back</mat-icon>
       </button>
     </div>
@@ -16,7 +16,7 @@
 
     <div *ngIf="availableDates.length > 0" class="appointment-form">
       <form (submit)="createAppointment()" [formGroup]="appointmentForm" aria-label="formulario para reservar una cita" class="form">
-        <mat-form-field appearance="fill" class="select-container">
+        <mat-form-field appearance="outline" class="select-container">
           <mat-label>Selecciona un horario</mat-label>
           <mat-select [(value)]="selectedDateIndex">
             <mat-option *ngFor="let availableDate of availableDates; let i = index" [value]="i">
@@ -27,7 +27,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Mensaje</mat-label>
-          <textarea matInput placeholder="Ingresa un mensaje para saber el motivo de la cita" name="message" rows="3" formControlName="message" ></textarea>
+          <textarea style="color: var(--text-automatic-color);" matInput placeholder="Ingresa un mensaje para saber el motivo de la cita" name="message" rows="3" formControlName="message" ></textarea>
           <mat-error *ngIf="appointmentForm.get('message')?.hasError('required')">
             El mensaje es requerido
           </mat-error>

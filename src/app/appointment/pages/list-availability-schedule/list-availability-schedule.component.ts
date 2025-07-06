@@ -67,7 +67,7 @@ export class ListAvailabilityScheduleComponent implements OnInit{
     // Open a dialog to confirm the deletion
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
-        message: `¿Estás seguro de querer eliminar este horario? Los granjeros ya no podrán visualizarla.`
+        message: `¿Estás seguro de querer eliminar este horario? Los productores agrícolas ya no podrán visualizarla.`
       }
     });
     // Return the result of the dialog

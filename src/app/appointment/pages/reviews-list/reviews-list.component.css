@@ -12,7 +12,7 @@
 }
 
 .title {
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   font-weight: bold;
   text-align: center;
@@ -68,7 +68,7 @@
 }
 
 .review-card {
-  background-color: #F7F9FC;
+  background-color: var(--text-primary-color);
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;

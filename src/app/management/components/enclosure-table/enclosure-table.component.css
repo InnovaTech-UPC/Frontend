@@ -2,14 +2,14 @@ th {
   color: #FFFFFF;
   font-size: 1rem;
   font-weight: bold;
-  border-bottom: 2px solid #061747;
+  border-bottom: 2px solid var(--text-color);
   text-align: center;
-  background-color: #061747 !important;
+  background-color: var(--text-color) !important;
 }
 
 td {
   padding: 10px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--text-primary-color);
 }
 
 .tabla {
@@ -19,8 +19,13 @@ td {
   width: 60%;
   margin: 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: var(--text-primary-color);
   overflow: hidden;
+}
+
+tr {
+  background-color: var(--text-primary-color) !important;
+  color: var(--text-automatic-color);
 }
 
 table {
@@ -44,11 +49,11 @@ table {
 }
 
 .actions button:nth-child(2) {
-  background-color: #092C4C;
+  background-color: var(--text-color);
 }
 
 .actions button:nth-child(3) {
-  background-color: #ff5252;
+  background-color: var(--error-color);
 }
 
 .paginator {
@@ -84,7 +89,7 @@ table {
 
 @media screen and (max-width: 500px) {
   .tabla {
-    border: 0px solid #092C4C;
+    border: 0px solid var(--text-color);
   }
   .tabla table {
     display: block;

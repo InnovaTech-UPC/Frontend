@@ -11,15 +11,15 @@
 }
 
 .container h1 {
-  color: #F84343;
+  color: var(--error-color);
   font-size: 30px;
   margin-bottom: 25px;
 }
 
 .container button {
   margin-top: 20px;
-  background-color: #F84343;
-  color: white;
+  background-color: var(--error-color);
+  color: var(--text-primary-color);
   border-radius: 20px;
   border: none;
   padding: 15px;

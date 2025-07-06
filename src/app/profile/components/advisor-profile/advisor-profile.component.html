@@ -45,7 +45,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Descripción (cuéntanos un poco sobre ti)</mat-label>
-          <textarea matInput placeholder="e.g.: Soy un asesor con experiencia de 6 años en gestión de granjas." name="description" [(ngModel)]="profile.description" required></textarea>
+          <textarea style="color: var(--text-automatic-color);" matInput placeholder="e.g.: Soy un asesor con experiencia de 6 años en gestión de granjas." name="description" [(ngModel)]="profile.description" required></textarea>
           <mat-error *ngIf="!profile.description">
             La descripción es requerida
           </mat-error>

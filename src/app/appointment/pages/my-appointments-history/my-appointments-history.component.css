@@ -18,7 +18,7 @@
 }
 
 .title-page {
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   text-align: center;
   margin: 0;
@@ -39,6 +39,7 @@ mat-form-field {
   margin: 20px;
   min-width: 65%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--text-primary-color);
 }
 
 .mat-card:hover {
@@ -66,19 +67,19 @@ mat-card-subtitle{
 }
 .title{
   font-weight: bold;
-  color: #092C4C;
+  color: var(--text-color);
 }
 .appointment-info {
   font-weight: normal;
-  color: #092C4C;
+  color: var(--text-color);
 }
 mat-card-header{
-  background: #FBFBFB;
+  background: var(--text-primary-color);
   border-radius: 10px;
 }
 
 .more-info {
-  background-color: white;
+  background-color: var(--text-primary-color);
   font-size: 20px;
   max-height: 0;
   padding-left: 20px;

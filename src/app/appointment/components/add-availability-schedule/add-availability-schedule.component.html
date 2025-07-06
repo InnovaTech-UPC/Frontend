@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header-row">
       <div class="back-button">
-        <button mat-icon-button style="color: #092C4C" (click)="goBack()">
+        <button mat-icon-button style="color: var(--text-color)" (click)="goBack()">
           <mat-icon class="icon">arrow_back</mat-icon>
         </button>
       </div>
@@ -10,15 +10,15 @@
     </div>
     <div class="date-form">
       <form  [formGroup]="form" (ngSubmit)="addAvailableDate()">
-        <mat-form-field style="width: 100%"  appearance="fill">
+        <mat-form-field style="width: 100%"  appearance="outline">
           <mat-label>Dia</mat-label>
           <input matInput formControlName="date" type="date" required>
         </mat-form-field>
-        <mat-form-field style="width: 100%"  appearance="fill">
+        <mat-form-field style="width: 100%"  appearance="outline">
           <mat-label>Hora de inicio</mat-label>
           <input matInput formControlName="startTime" type="time" required>
         </mat-form-field>
-        <mat-form-field style="width: 100%"  appearance="fill">
+        <mat-form-field style="width: 100%"  appearance="outline">
           <mat-label>Hora de fin</mat-label>
           <input matInput formControlName="endTime" type="time" required>
         </mat-form-field>

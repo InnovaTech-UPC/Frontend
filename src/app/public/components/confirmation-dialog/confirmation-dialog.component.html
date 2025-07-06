@@ -1,8 +1,10 @@
-<h2 mat-dialog-title>Confirmación</h2>
-<mat-dialog-content>
-  <p>{{ message }}</p>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button aria-label="confirmar" (click)="onConfirm()">Sí</button>
-  <button mat-button aria-label="cancelar" (click)="onCancel()">No</button>
-</mat-dialog-actions>
+<div class="container">
+  <h2 mat-dialog-title class="title">Confirmación</h2>
+  <mat-dialog-content>
+    <p>{{ message }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button aria-label="confirmar" (click)="onConfirm()">Sí</button>
+    <button mat-button aria-label="cancelar" (click)="onCancel()">No</button>
+  </mat-dialog-actions>
+</div>

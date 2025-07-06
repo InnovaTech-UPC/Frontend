@@ -15,9 +15,13 @@
 }
 
 .title {
-  color: #092C4C;
+  color: var(--text-color);
   font-weight: bold;
   font-size: 2rem;
+}
+
+mat-card{
+  background-color: var(--text-primary-color);
 }
 
 .mat-card-content {
@@ -45,21 +49,18 @@ button {
 
 .role-text {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-automatic-color);
 }
 
 a {
-  color: #666;
-  text-decoration: none;
+  color: var(--text-automatic-color);
 }
 
 a:hover {
-  color: #DD763D;
+  color: var(--secondary-color);
 }
 
 .login {
   margin-top: 20px;
   font-size: 0.9rem;
-  text-decoration: underline;
-  color: #000000;
 }

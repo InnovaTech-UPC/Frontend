@@ -1,0 +1,15 @@
+.container {
+  background-color: var(--text-primary-color);
+}
+
+.title {
+  color: var(--text-color);
+}
+
+mat-dialog-content p {
+  color: var(--text-automatic-color);
+}
+
+mat-dialog-actions button {
+  color: var(--text-automatic-color);
+}

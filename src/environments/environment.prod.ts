@@ -22,5 +22,8 @@ export const environment = {
   animalURL: import.meta.env["NG_APP_ANIMAL_URL"],
   enclosureURL: import.meta.env["NG_APP_ENCLOSURE_URL"],
   reviewURL: import.meta.env["NG_APP_REVIEW_URL"],
-  availableDateURL: import.meta.env["NG_APP_AVAILABLE_DATE_URL"]
+  availableDateURL: import.meta.env["NG_APP_AVAILABLE_DATE_URL"],
+  forumPostURL: import.meta.env["NG_APP_FORUM_POST_URL"],
+  forumReplyURL: import.meta.env["NG_APP_FORUM_REPLY_URL"],
+  forumFavoriteURL: import.meta.env["NG_APP_FORUM_FAVORITE_URL"]
 };

@@ -13,12 +13,32 @@
   max-width: 1200px;
   margin: 100px auto 0;
 }
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper input {
+  color: var(--text-automatic-color) !important;
+  background-color: inherit;
+}
+
+::ng-deep .mat-form-field {
+  background-color: var(--text-automatic-color) !important;
+}
+
+mat-card {
+  background-color: var(--text-primary-color);
+}
 
 .back-button {
   justify-self: start;
 }
 .title-page {
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   text-align: center;
   margin: 0;

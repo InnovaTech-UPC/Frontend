@@ -3,7 +3,7 @@ main {
 }
 
 .title-page {
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   text-align: center;
   padding-bottom: 20px;
@@ -28,6 +28,16 @@ mat-form-field {
   width: 70%;
   --mdc-outlined-text-field-focus-outline-color: #7ec306;
   --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+}
+
+mat-form-field mat-label, mat-form-field input {
+  color: var(--text-automatic-color) !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper input {
+  color: var(--text-automatic-color) !important;
+  background-color: inherit;
 }
 
 .loading-spinner {
@@ -72,7 +82,7 @@ mat-form-field {
 }
 
 .submit-button:enabled {
-  background-color: #092C4C;
+  background-color: var(--text-color);
   color: #FFFFFF;
 }
 

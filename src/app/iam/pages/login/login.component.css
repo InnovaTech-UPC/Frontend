@@ -7,6 +7,19 @@
   align-items: center;
 }
 
+mat-card{
+  background-color: var(--text-primary-color);
+}
+
+::ng-deep .mat-mdc-text-field-wrapper input {
+  color: var(--text-automatic-color) !important;
+  background-color: inherit;
+}
+
+::ng-deep .mat-form-field {
+  background-color: var(--text-automatic-color) !important;
+}
+
 .card{
   display: flex;
   flex-direction: column;
@@ -18,7 +31,7 @@
 mat-card-title{
   font-size: 32px;
   margin: 36px 0;
-  color: #092C4C;
+  color: var(--text-color);
 }
 
 .form-login{
@@ -54,8 +67,13 @@ mat-card-title{
 
 mat-form-field{
   width: 80%;
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
   --mdc-outlined-text-field-focus-outline-color: #7ec306;
   --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
 }
 
 button{
@@ -65,25 +83,25 @@ button{
 }
 
 button:enabled{
-  background-color: #092C4C;
+  background-color: var(--text-color);
   color: white;
 }
 
 a{
   cursor: pointer;
-  color: black;
+  color: var(--text-automatic-color);
 }
 
 a:visited {
-  color: black;
+  color: var(--text-automatic-color);
 }
 
 a:hover{
-  color: #DC763C;
+  color: var(--secondary-color);
 }
 
 .error-message{
-  color: red;
+  color: var(--error-color);
   text-align: center;
 }
 

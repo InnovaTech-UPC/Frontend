@@ -5,18 +5,35 @@
   margin-top: 100px;
 }
 .title-page {
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   text-align: center;
 }
 
 mat-form-field {
   width: 70%;
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
 }
 
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper input {
+  color: var(--text-automatic-color) !important;
+  background-color: inherit;
+}
+
+::ng-deep .mat-form-field {
+  background-color: var(--text-automatic-color) !important;
+}
+
+mat-card {
+  background-color: var(--text-primary-color);
+}
 
 .button_only{
-  background-color: #092C4C;
+  background-color: var(--text-color);
   border-radius: 35px;
   padding: 20px;
   width: 200px;
@@ -52,19 +69,19 @@ mat-card-subtitle{
 }
 .title{
   font-weight: bold;
-  color: #092C4C;
+  color: var(--text-color);
 }
 .stars{
   font-size: 25px;
   color: #F7C480;
 }
 mat-card-header{
-  background: #FBFBFB;
+  background: var(--text-primary-color);
   border-radius: 10px;
 }
 
 .more-info {
-  background-color: white;
+  background-color: var(--text-primary-color);
   font-size: 20px;
   max-height: 0;
   padding-left: 20px;
@@ -82,7 +99,7 @@ mat-card-header{
 .card-button{
   color: white;
   border-radius: 10px;
-  background-color: #092C4C;
+  background-color: var(--text-color);
 }
 
 /*Responsive*/

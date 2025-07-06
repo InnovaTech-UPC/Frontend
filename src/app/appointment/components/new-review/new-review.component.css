@@ -3,7 +3,7 @@ main {
 }
 
 .title-page {
-  color: #092C4C;
+  color: var(--text-color);
   padding-top: 20px;
   font-size: 35px;
   text-align: center;
@@ -47,6 +47,14 @@ mat-form-field{
   margin-top: 20px;
   --mdc-outlined-text-field-focus-outline-color: #7ec306;
   --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
+
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
 }
 
 .send-button {

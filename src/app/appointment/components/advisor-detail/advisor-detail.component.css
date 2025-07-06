@@ -10,7 +10,7 @@ main {
 }
 
 h2 {
-  color: #092C4C;
+  color: var(--text-color);
 }
 
 .photo {

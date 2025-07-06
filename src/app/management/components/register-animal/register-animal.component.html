@@ -9,27 +9,27 @@
     <h2>Registrar nuevo animal</h2>
   </div>
   <div class="group-inputs">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label>
       <input matInput placeholder="Nombre del animal" name="animalName" [(ngModel)]="animal.name" required>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Edad</mat-label>
       <input matInput type="number" placeholder="Edad" name="animalAge" min="0" [(ngModel)]="animal.age" required>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Especie</mat-label>
       <input matInput placeholder="Especie del animal" name="animalSpecies" [(ngModel)]="animal.species" required>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Raza</mat-label>
       <input matInput placeholder="Raza del animal" name="animalName" [(ngModel)]="animal.breed" required>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Género</mat-label>
       <mat-select name="animalGender" aria-label="seleccionador de genero" [(ngModel)]="gender" required>
         <mat-option value="true">Macho</mat-option>
@@ -37,12 +37,12 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Peso (kg)</mat-label>
       <input matInput type="number" placeholder="Peso" name="animalWeight" min="0.1" [(ngModel)]="animal.weight" required>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Salud</mat-label>
       <mat-select name="animalHealth" [(ngModel)]="animal.health">
         <mat-option value="HEALTHY">Saludable</mat-option>
@@ -52,7 +52,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>ID de recinto</mat-label>
       <input matInput type="number" placeholder="ID de recinto" name="animalEnclosureId" [(ngModel)]="animal.enclosureId" disabled>
     </mat-form-field>

@@ -1,5 +1,5 @@
 h2 {
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   font-weight: bold;
 }
@@ -17,6 +17,20 @@ h2 {
   justify-self: start;
 }
 
+mat-form-field {
+  --mdc-outlined-text-field-outline-color: var(--text-automatic-color) !important;
+  --mdc-outlined-text-field-focus-outline-color: #7ec306;
+  --mdc-outlined-text-field-focus-label-text-color: #7ec306;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper mat-select {
+  color: var(--text-automatic-color) !important;
+  background-color: inherit;
+}
+
+mat-form-field mat-label {
+  color: var(--text-automatic-color) !important;
+}
 
 main {
   margin-top: 80px;
@@ -35,7 +49,7 @@ main {
 }
 
 .group-btns button:enabled {
-  background-color: #092C4C;
+  background-color: var(--text-color);
   margin: 0 auto;
 }
 

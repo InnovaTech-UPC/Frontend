@@ -1,7 +1,7 @@
 <main class="container">
   <h1>Horarios Disponibles</h1>
   <div class="card-container">
-    <mat-card style="margin: 15px auto;" *ngFor="let date of dates">
+    <mat-card style="margin: 15px auto; background-color: var(--text-primary-color);" *ngFor="let date of dates">
       <mat-card-content>
         <span class="card-description">Fecha: {{date.scheduledDate}}</span>
         <h2 class="card-title">Horario: {{date.startTime}} - {{date.endTime}}</h2>
@@ -12,5 +12,5 @@
   <div *ngIf="dates.length === 0" class="error-container">
     <span class="error-title">No tienes horarios para mostrar</span>
   </div>
-  <button style="background-color: #092C4C; color: white; margin-top:10px;" mat-button class="button" routerLink="/asesor/horarios/agregar">Agregar</button>
+  <button style="background-color: var(--text-color); color: white; margin-top:10px;" mat-button class="button" routerLink="/asesor/horarios/agregar">Agregar</button>
 </main>
