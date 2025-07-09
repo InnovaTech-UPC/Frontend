@@ -9,5 +9,58 @@ button {
   z-index: 0;
 }
 
+:root{
+  --primary-color: #DC763C;
+  --secondary-color: #ef7e3e;
+  --secondary-color-second: #f2e2a8;
+  --success-color: #27AE60;
+  --success-color-second: #A9DFBF;
+  --error-color: #F84343;
+  --text-color: #062D3E;
+  --text-primary-color: #ffffff;
+  --text-secundary-color: #DC763C;
+  --text-automatic-color: #000000;
+}
+
+body.dark-mode, html.dark-mode {
+  --primary-color: #97420e;
+  --secondary-color: #f39d6d;
+  --secondary-color-second: #b5b5b5;
+  --success-color: #2aa35a;
+  --success-color-second: #7bdc9e;
+  --error-color: #e36767;
+  --text-color: #92aeff;
+  --text-primary-color: #4a4a4a;
+  --text-secundary-color: #e16a21;
+  --text-automatic-color: #ffffff;
+}
+
+body.dark-mode {
+  background-color: #303030;
+  color: #ffffff;
+}
+
+
+html.dark-mode, body.dark-mode {
+  background-color: #303030;
+  color: #ffffff;
+}
+
+main {
+  background-color: inherit;
+  color: inherit;
+}
+
+.container {
+  background-color: inherit;
+  color: inherit;
+}
+
+button {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

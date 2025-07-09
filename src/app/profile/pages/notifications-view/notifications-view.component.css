@@ -7,7 +7,7 @@
 }
 
 .title-page {
-  color: #092C4C;
+  color: var(--text-color);
   font-size: 35px;
   text-align: center;
   padding-bottom: 20px;
@@ -22,7 +22,7 @@
 }
 
 button{
-  background-color: #092C4C;
+  background-color: var(--text-color);
   border-radius: 35px;
 
   margin: 0 0 20px 0;
@@ -34,14 +34,14 @@ button{
   align-items: center;
   width: 40%;
   height: auto;
-  background-color: #FBFBFB;
+  background-color: var(--text-primary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
 }
 
 .card-title{
   font-size: 20px;
-  color: #5276ed;
+  color: var(--text-color);
   font-weight: bold;
   margin-top: 2%;
 }
@@ -64,13 +64,13 @@ button{
 
 .card-subtitle{
   font-size: 16px;
-  color: #061747;
+  color: var(--text-automatic-color);
   font-weight: normal;
   margin: 20px 0;
 }
 
 .card-button-1{
-  background: #092C4C;
+  background: var(--text-color);
   border-radius: 35px;
   padding: 20px;
   width: 200px;

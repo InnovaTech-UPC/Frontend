@@ -1,7 +1,7 @@
 <main>
   <h1>Listado de Recintos</h1>
   <div class="error-container" *ngIf="length === 0">
-    <h2>No se han encontrado jaulas</h2>
+    <h2>No se han encontrado recintos</h2>
   </div>
   <enclosure-table *ngIf="length > 0" [dataSource]="dataSource" (editEnclosure)="editEnclosure($event)" (deleteEnclosure)="deleteEnclosure($event)" (goToEnclosure)="goToEnclosure($event)"></enclosure-table>
   <div class="button-container">
